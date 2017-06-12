@@ -12,28 +12,29 @@ import MapKit
 class TJBMapBasedSearchVC: UIViewController {
     
     @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var randomVendorsButton: UIBarButtonItem!
+    @IBOutlet weak var centerOnLocationButton: UIButton!
     
-
+    @IBAction func didPressCenterOnLocationButton(_ sender: Any) {
+        TJBLocationManager.sharedInstance.requestLocation()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(forName: Notification.Name("LocationDidUpdate")
+            , object: TJBLocationManager.sharedInstance
+            , queue: nil
+            , using: { (notification: Notification) in
+                print("location did update")
+        })
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+extension TJBMapBasedSearchVC: MKMapViewDelegate {
+    
+}
+
+
+
+

@@ -18,6 +18,9 @@
 		0BFA9AAD1EEEB66800824929 /* TJBVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9AAC1EEEB66800824929 /* TJBVendor.swift */; };
 		0BFA9AB01EEEC45600824929 /* TJBMapBasedSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9AAE1EEEC45600824929 /* TJBMapBasedSearchVC.swift */; };
 		0BFA9AB11EEEC45600824929 /* TJBMapBasedSearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BFA9AAF1EEEC45600824929 /* TJBMapBasedSearchVC.xib */; };
+		0BFA9AB51EEEFAD600824929 /* TJBLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9AB41EEEFAD600824929 /* TJBLocationManager.swift */; };
+		0BFA9AB81EEEFB1600824929 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFA9AB71EEEFB1600824929 /* CoreLocation.framework */; };
+		0BFA9ABA1EEEFB2000824929 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFA9AB91EEEFB2000824929 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		0BFA9AAC1EEEB66800824929 /* TJBVendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBVendor.swift; sourceTree = "<group>"; };
 		0BFA9AAE1EEEC45600824929 /* TJBMapBasedSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBMapBasedSearchVC.swift; sourceTree = "<group>"; };
 		0BFA9AAF1EEEC45600824929 /* TJBMapBasedSearchVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJBMapBasedSearchVC.xib; sourceTree = "<group>"; };
+		0BFA9AB41EEEFAD600824929 /* TJBLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBLocationManager.swift; sourceTree = "<group>"; };
+		0BFA9AB71EEEFB1600824929 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0BFA9AB91EEEFB2000824929 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BFA9ABA1EEEFB2000824929 /* MapKit.framework in Frameworks */,
+				0BFA9AB81EEEFB1600824929 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +97,7 @@
 				0BFA9A8F1EEEB5FD00824929 /* UnchartedTests */,
 				0BFA9A9A1EEEB5FD00824929 /* UnchartedUITests */,
 				0BFA9A761EEEB5FC00824929 /* Products */,
+				0BFA9AB61EEEFB1600824929 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +114,7 @@
 		0BFA9A771EEEB5FC00824929 /* Uncharted */ = {
 			isa = PBXGroup;
 			children = (
+				0BFA9AB31EEEFABC00824929 /* Singletons */,
 				0BFA9AAB1EEEB61A00824929 /* View */,
 				0BFA9AAA1EEEB61800824929 /* Controller */,
 				0BFA9AA91EEEB60D00824929 /* Model */,
@@ -159,6 +169,23 @@
 			children = (
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		0BFA9AB31EEEFABC00824929 /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				0BFA9AB41EEEFAD600824929 /* TJBLocationManager.swift */,
+			);
+			name = Singletons;
+			sourceTree = "<group>";
+		};
+		0BFA9AB61EEEFB1600824929 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0BFA9AB91EEEFB2000824929 /* MapKit.framework */,
+				0BFA9AB71EEEFB1600824929 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +331,7 @@
 				0BFA9A811EEEB5FD00824929 /* Uncharted.xcdatamodeld in Sources */,
 				0BFA9A7B1EEEB5FD00824929 /* ViewController.swift in Sources */,
 				0BFA9A791EEEB5FC00824929 /* AppDelegate.swift in Sources */,
+				0BFA9AB51EEEFAD600824929 /* TJBLocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

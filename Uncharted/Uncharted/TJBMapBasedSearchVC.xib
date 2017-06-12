@@ -11,7 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TJBMapBasedSearchVC" customModule="Uncharted" customModuleProvider="target">
             <connections>
+                <outlet property="centerOnLocationButton" destination="UDF-qD-ANA" id="P6g-Jm-9L0"/>
                 <outlet property="map" destination="j1p-sR-le8" id="k2a-Z8-SpN"/>
+                <outlet property="randomVendorsButton" destination="CVV-CE-SJo" id="p9b-4q-3dY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,6 +24,9 @@
             <subviews>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="j1p-sR-le8">
                     <rect key="frame" x="0.0" y="55" width="375" height="568"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="GPP-Rs-C2U"/>
+                    </connections>
                 </mapView>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="zoq-ts-b1c">
                     <rect key="frame" x="0.0" y="623" width="375" height="44"/>
@@ -53,11 +58,23 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDF-qD-ANA">
+                    <rect key="frame" x="321" y="65" width="44" height="44"/>
+                    <color key="backgroundColor" red="1" green="0.22229077990225343" blue="0.26235493954099565" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="gcs-e9-fkY"/>
+                        <constraint firstAttribute="width" constant="44" id="lNH-d4-vHY"/>
+                    </constraints>
+                    <connections>
+                        <action selector="didPressCenterOnLocationButton:" destination="-1" eventType="touchUpInside" id="T7B-cG-ydp"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="d8F-yA-2Ib" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="31C-ay-Im7"/>
                 <constraint firstItem="zoq-ts-b1c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="D3P-1p-bDX"/>
+                <constraint firstAttribute="trailing" secondItem="UDF-qD-ANA" secondAttribute="trailing" constant="10" id="DA6-vm-g4j"/>
                 <constraint firstItem="yYR-zi-gLk" firstAttribute="height" secondItem="KYZ-Py-Uxo" secondAttribute="height" id="GPY-gI-bDI"/>
                 <constraint firstAttribute="bottom" secondItem="zoq-ts-b1c" secondAttribute="bottom" id="GoX-9z-GJE"/>
                 <constraint firstItem="yYR-zi-gLk" firstAttribute="width" secondItem="KYZ-Py-Uxo" secondAttribute="width" id="Kt1-cy-FdD"/>
@@ -69,6 +86,7 @@
                 <constraint firstAttribute="trailing" secondItem="yYR-zi-gLk" secondAttribute="trailing" id="jpt-wl-UDe"/>
                 <constraint firstItem="j1p-sR-le8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mgb-0N-RVU"/>
                 <constraint firstAttribute="trailing" secondItem="j1p-sR-le8" secondAttribute="trailing" id="nfX-qF-lrD"/>
+                <constraint firstItem="UDF-qD-ANA" firstAttribute="top" secondItem="d8F-yA-2Ib" secondAttribute="bottom" constant="10" id="oYA-JO-ekS"/>
                 <constraint firstItem="KYZ-Py-Uxo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="r2E-ul-E3u"/>
                 <constraint firstItem="d8F-yA-2Ib" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vcO-7o-54b"/>
                 <constraint firstItem="j1p-sR-le8" firstAttribute="top" secondItem="d8F-yA-2Ib" secondAttribute="bottom" id="zJs-hx-oPp"/>
