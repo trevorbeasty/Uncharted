@@ -21,14 +21,27 @@ class TJBMapBasedSearchVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        NotificationCenter.default.addObserver(forName: Notification.Name("LocationDidUpdate")
-            , object: TJBLocationManager.sharedInstance
-            , queue: nil
-            , using: { (notification: Notification) in
+        
+        map.delegate = self;
+        
+        NotificationCenter.default.addObserver(forName: Notification.Name("LocationDidUpdate"), object: TJBLocationManager.sharedInstance, queue: nil, using: { (notification: Notification) in
                 print("location did update")
+                if let info = notification.userInfo as? Dictionary<String,[CLLocation]> {
+                    if let locations = info["locations"] {
+                        let location = locations[0]
+                        self.centerMap(location: location, radiusInMeters: 50)
+                    }
+                }
         })
     }
+    
+    func centerMap(location: CLLocation, radiusInMeters: CLLocationDistance) {
+        let distance = radiusInMeters * 2
+        let region = MKCoordinateRegionMakeWithDistance(location.coordinate, distance, distance)
+        map .setRegion(region, animated: true)
+    }
+    
+    
 }
 
 extension TJBMapBasedSearchVC: MKMapViewDelegate {
