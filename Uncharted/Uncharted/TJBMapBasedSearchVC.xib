@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TJBMapBasedSearchVC" customModule="Uncharted" customModuleProvider="target">
+            <connections>
+                <outlet property="map" destination="j1p-sR-le8" id="k2a-Z8-SpN"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="j1p-sR-le8">
+                    <rect key="frame" x="0.0" y="55" width="375" height="568"/>
+                </mapView>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="zoq-ts-b1c">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="pYb-XL-tkh"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYZ-Py-Uxo">
+                    <rect key="frame" x="0.0" y="579" width="44" height="44"/>
+                    <color key="backgroundColor" red="0.95660322984001944" green="0.29396013591928438" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="4Ed-Ej-Kbs"/>
+                        <constraint firstAttribute="height" constant="44" id="r9m-Y1-DgQ"/>
+                    </constraints>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYR-zi-gLk">
+                    <rect key="frame" x="331" y="579" width="44" height="44"/>
+                    <color key="backgroundColor" red="0.95660322984001944" green="0.29396013591928438" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </button>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8F-yA-2Ib">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="AIN-nw-id5"/>
+                    </constraints>
+                    <items>
+                        <navigationItem title="Map Based Search" id="fZz-N5-c29">
+                            <barButtonItem key="rightBarButtonItem" title="Rand" id="CVV-CE-SJo"/>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="d8F-yA-2Ib" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="31C-ay-Im7"/>
+                <constraint firstItem="zoq-ts-b1c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="D3P-1p-bDX"/>
+                <constraint firstItem="yYR-zi-gLk" firstAttribute="height" secondItem="KYZ-Py-Uxo" secondAttribute="height" id="GPY-gI-bDI"/>
+                <constraint firstAttribute="bottom" secondItem="zoq-ts-b1c" secondAttribute="bottom" id="GoX-9z-GJE"/>
+                <constraint firstItem="yYR-zi-gLk" firstAttribute="width" secondItem="KYZ-Py-Uxo" secondAttribute="width" id="Kt1-cy-FdD"/>
+                <constraint firstItem="zoq-ts-b1c" firstAttribute="top" secondItem="yYR-zi-gLk" secondAttribute="bottom" id="PCm-ff-gHD"/>
+                <constraint firstItem="zoq-ts-b1c" firstAttribute="top" secondItem="j1p-sR-le8" secondAttribute="bottom" id="TYs-7Q-niU"/>
+                <constraint firstAttribute="trailing" secondItem="d8F-yA-2Ib" secondAttribute="trailing" id="aO6-Iu-P7R"/>
+                <constraint firstAttribute="trailing" secondItem="zoq-ts-b1c" secondAttribute="trailing" id="fW5-O7-Yd2"/>
+                <constraint firstItem="zoq-ts-b1c" firstAttribute="top" secondItem="KYZ-Py-Uxo" secondAttribute="bottom" id="gie-OH-DQP"/>
+                <constraint firstAttribute="trailing" secondItem="yYR-zi-gLk" secondAttribute="trailing" id="jpt-wl-UDe"/>
+                <constraint firstItem="j1p-sR-le8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mgb-0N-RVU"/>
+                <constraint firstAttribute="trailing" secondItem="j1p-sR-le8" secondAttribute="trailing" id="nfX-qF-lrD"/>
+                <constraint firstItem="KYZ-Py-Uxo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="r2E-ul-E3u"/>
+                <constraint firstItem="d8F-yA-2Ib" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vcO-7o-54b"/>
+                <constraint firstItem="j1p-sR-le8" firstAttribute="top" secondItem="d8F-yA-2Ib" secondAttribute="bottom" id="zJs-hx-oPp"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
