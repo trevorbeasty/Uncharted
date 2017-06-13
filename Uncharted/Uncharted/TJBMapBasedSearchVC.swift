@@ -16,7 +16,8 @@ class TJBMapBasedSearchVC: UIViewController {
     @IBOutlet weak var centerOnLocationButton: UIButton!
     
     @IBAction func didPressCenterOnLocationButton(_ sender: Any) {
-        TJBLocationManager.sharedInstance.requestLocation()
+//        TJBLocationManager.sharedInstance.requestLocation()
+        TJBServerFacade.sharedInstance.getAllVendors()
     }
     
     override func viewDidLoad() {
@@ -24,23 +25,32 @@ class TJBMapBasedSearchVC: UIViewController {
         
         map.delegate = self;
         
+        configureLocationDidUpdateNotification()
+    }
+    
+    private func configureLocationDidUpdateNotification() {
         NotificationCenter.default.addObserver(forName: Notification.Name("LocationDidUpdate"), object: TJBLocationManager.sharedInstance, queue: nil, using: { (notification: Notification) in
-                print("location did update")
-                if let info = notification.userInfo as? Dictionary<String,[CLLocation]> {
-                    if let locations = info["locations"] {
-                        let location = locations[0]
-                        self.centerMap(location: location, radiusInMeters: 50)
-                    }
+//            print("location did update")
+            if let info = notification.userInfo as? Dictionary<String,[CLLocation]> {
+                if let locations = info["locations"] {
+                    let location = locations[0]
+                    self.centerMap(location: location, radiusInMeters: 50)
                 }
+            }
         })
     }
     
     func centerMap(location: CLLocation, radiusInMeters: CLLocationDistance) {
         let distance = radiusInMeters * 2
         let region = MKCoordinateRegionMakeWithDistance(location.coordinate, distance, distance)
-        map .setRegion(region, animated: true)
+        DispatchQueue.main.async {
+            self.map.setRegion(region, animated: true)
+        }
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
 }
 

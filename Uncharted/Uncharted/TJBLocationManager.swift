@@ -11,11 +11,11 @@ import CoreLocation
 
 class TJBLocationManager: NSObject {
     
-    static let sharedInstance = TJBLocationManager();
+    static let sharedInstance = TJBLocationManager()
     let locationManager: CLLocationManager
     
     private override init() {
-        let lm = CLLocationManager();
+        let lm = CLLocationManager()
         self.locationManager = lm;
         super.init();
         lm.delegate = self;
@@ -42,9 +42,7 @@ extension TJBLocationManager: CLLocationManagerDelegate {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         
         let notificationName = Notification.Name("LocationDidUpdate")
-        NotificationCenter.default.post(name: notificationName
-            , object:  self
-            , userInfo: ["locations":locations])
+        NotificationCenter.default.post(name: notificationName, object:  self, userInfo: ["locations":locations])
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
