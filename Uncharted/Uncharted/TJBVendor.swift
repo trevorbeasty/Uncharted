@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class TJBVendor {
+class TJBVendor: NSObject {
     
     enum VendorType : Int {
         case StreetArtist, StreetPerformer, HouseParty, OpenHouse, FoodTruck
@@ -19,9 +19,27 @@ class TJBVendor {
             while let _ = VendorType(rawValue: max) { max += 1 }
             return max
         }()
+        
+        var stringRepresentation: String {
+            return "vendorType_" + String(self.rawValue)
+        }
+        
+        var mapSymbol: UIImage? {
+            switch self {
+            case .StreetArtist:
+                return #imageLiteral(resourceName: "StreetArt")
+            case .StreetPerformer:
+                return #imageLiteral(resourceName: "StreetPerformer")
+            case .HouseParty:
+                return #imageLiteral(resourceName: "HouseParty")
+            case .OpenHouse:
+                return #imageLiteral(resourceName: "OpenHouse")
+            case .FoodTruck:
+                return #imageLiteral(resourceName: "FoodTruck")
+            }
+        }
     }
 
-    
     let name : String
     let detail : String
     var location : CLLocation
@@ -36,7 +54,7 @@ class TJBVendor {
         self.type = type
     }
     
-    var description: String {
+    override var description: String {
         return "name: \(name), detail: \(detail), type: \(type), is active: \(isActive)"
     }
 }
@@ -96,6 +114,22 @@ extension TJBVendor {
             
             task.resume()
         }
+    }
+}
+
+// MKAnnotation protocol
+extension TJBVendor: MKAnnotation {
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: self.location.coordinate.latitude,
+                                      longitude: self.location.coordinate.longitude)
+    }
+    
+    var title: String? {
+        return self.name
+    }
+    
+    var subtitle: String? {
+        return self.detail
     }
     
 }

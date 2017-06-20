@@ -15,20 +15,6 @@ class TJBMapBasedSearchVC: UIViewController {
     @IBOutlet weak var randomVendorsButton: UIBarButtonItem!
     @IBOutlet weak var centerOnLocationButton: UIButton!
     
-    @IBAction func didPressCenterOnLocationButton(_ sender: Any) {
-        TJBLocationManager.sharedInstance.requestLocation()
-        
-        do {
-            try TJBVendor.downloadAllVendors(completion: { (vendors: [TJBVendor]) -> Void in
-                for vendor in vendors {
-                    print(vendor.description)
-                }
-            })
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,8 +51,54 @@ class TJBMapBasedSearchVC: UIViewController {
     
 }
 
+// IBAction
+extension TJBMapBasedSearchVC {
+    
+    @IBAction func didPressCenterOnLocationButton(_ sender: Any) {
+        TJBLocationManager.sharedInstance.requestLocation()
+        
+        do {
+            try TJBVendor.downloadAllVendors(completion: { (vendors: [TJBVendor]) -> Void in
+                for vendor in vendors {
+                    print(vendor.description)
+                }
+            })
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    @IBAction func didPressRandButton(_ sender: Any) {
+        let randVendor = TJBVendorFactory.randomVendor(region: map.region)
+        map.addAnnotation(randVendor)
+    }
+    
+}
+
+// MKMapViewDelegate protocol
 extension TJBMapBasedSearchVC: MKMapViewDelegate {
     
+    var annotationViewIdentifier: String { return "AnnotationView" }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if let vendor = annotation as? TJBVendor {
+            if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: vendor.type.stringRepresentation) {
+                dequeuedAnnotationView.annotation = annotation
+                return dequeuedAnnotationView
+            }
+            else {
+                let newAnnotationView = MKAnnotationView(annotation: annotation,
+                                                     reuseIdentifier: vendor.type.stringRepresentation)
+                newAnnotationView.isEnabled = true
+                newAnnotationView.canShowCallout = true
+                newAnnotationView.image = vendor.type.mapSymbol
+                return newAnnotationView
+            }
+        }
+        
+        return nil
+    }
 }
 
 

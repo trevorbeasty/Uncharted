@@ -54,7 +54,11 @@
                     </constraints>
                     <items>
                         <navigationItem title="Map Based Search" id="fZz-N5-c29">
-                            <barButtonItem key="rightBarButtonItem" title="Rand" id="CVV-CE-SJo"/>
+                            <barButtonItem key="rightBarButtonItem" title="Rand" id="CVV-CE-SJo">
+                                <connections>
+                                    <action selector="didPressRandButton:" destination="-1" id="O6d-Jm-BYW"/>
+                                </connections>
+                            </barButtonItem>
                         </navigationItem>
                     </items>
                 </navigationBar>
