@@ -1,13 +1,9 @@
 //
-//  TJBJsonConverter.swift
+//  TJBVendorFactory.swift
 //  Uncharted
 //
-//  Created by Trevor Beasty on 6/13/17.
+//  Created by Trevor Beasty on 6/20/17.
 //  Copyright © 2017 BeastlyCreations. All rights reserved.
 //
 
 import Foundation
-
-class TJBJsonConverter {
-    
-}
