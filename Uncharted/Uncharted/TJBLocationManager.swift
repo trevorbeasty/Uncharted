@@ -11,6 +11,10 @@ import CoreLocation
 
 class TJBLocationManager: NSObject {
     
+    enum LocationNotifications: String {
+        case LocationDidUpdate, LocationUpdateFailed
+    }
+    
     static let sharedInstance = TJBLocationManager()
     let locationManager: CLLocationManager
     
@@ -41,7 +45,7 @@ extension TJBLocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         
-        let notificationName = Notification.Name("LocationDidUpdate")
+        let notificationName = Notification.Name(LocationNotifications.LocationDidUpdate.rawValue)
         NotificationCenter.default.post(name: notificationName, object:  self, userInfo: ["locations":locations])
     }
     
@@ -51,9 +55,7 @@ extension TJBLocationManager: CLLocationManagerDelegate {
     
 }
 
-enum TJBLocationNotifications: String {
-    case LocationDidUpdate, LocationUpdateFailed
-}
+
 
 
 

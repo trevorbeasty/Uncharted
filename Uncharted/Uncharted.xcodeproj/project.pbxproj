@@ -21,10 +21,8 @@
 		0BFA9AB51EEEFAD600824929 /* TJBLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9AB41EEEFAD600824929 /* TJBLocationManager.swift */; };
 		0BFA9AB81EEEFB1600824929 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFA9AB71EEEFB1600824929 /* CoreLocation.framework */; };
 		0BFA9ABA1EEEFB2000824929 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFA9AB91EEEFB2000824929 /* MapKit.framework */; };
-		0BFA9ABD1EF00B3C00824929 /* TJBServerFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9ABC1EF00B3B00824929 /* TJBServerFacade.swift */; };
-		0BFA9AC11EF00C6400824929 /* TJBJsonConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9AC01EF00C6400824929 /* TJBJsonConverter.swift */; };
-		0BFA9AC31EF00C7600824929 /* TJBServerCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9AC21EF00C7600824929 /* TJBServerCommunicator.swift */; };
 		0BFA9AC51EF00E3500824929 /* TJBUrlManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9AC41EF00E3500824929 /* TJBUrlManager.swift */; };
+		0BFA9AC71EF96CEE00824929 /* TJBVendorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9AC61EF96CEE00824929 /* TJBVendorFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,10 +63,8 @@
 		0BFA9AB41EEEFAD600824929 /* TJBLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBLocationManager.swift; sourceTree = "<group>"; };
 		0BFA9AB71EEEFB1600824929 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		0BFA9AB91EEEFB2000824929 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		0BFA9ABC1EF00B3B00824929 /* TJBServerFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBServerFacade.swift; sourceTree = "<group>"; };
-		0BFA9AC01EF00C6400824929 /* TJBJsonConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBJsonConverter.swift; sourceTree = "<group>"; };
-		0BFA9AC21EF00C7600824929 /* TJBServerCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBServerCommunicator.swift; sourceTree = "<group>"; };
 		0BFA9AC41EF00E3500824929 /* TJBUrlManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBUrlManager.swift; sourceTree = "<group>"; };
+		0BFA9AC61EF96CEE00824929 /* TJBVendorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBVendorFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				0BFA9AAC1EEEB66800824929 /* TJBVendor.swift */,
+				0BFA9AC61EF96CEE00824929 /* TJBVendorFactory.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -200,9 +197,6 @@
 		0BFA9ABB1EF00ACF00824929 /* Server */ = {
 			isa = PBXGroup;
 			children = (
-				0BFA9ABC1EF00B3B00824929 /* TJBServerFacade.swift */,
-				0BFA9AC01EF00C6400824929 /* TJBJsonConverter.swift */,
-				0BFA9AC21EF00C7600824929 /* TJBServerCommunicator.swift */,
 				0BFA9AC41EF00E3500824929 /* TJBUrlManager.swift */,
 			);
 			name = Server;
@@ -347,13 +341,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BFA9AB01EEEC45600824929 /* TJBMapBasedSearchVC.swift in Sources */,
+				0BFA9AC71EF96CEE00824929 /* TJBVendorFactory.swift in Sources */,
 				0BFA9AAD1EEEB66800824929 /* TJBVendor.swift in Sources */,
 				0BFA9AC51EF00E3500824929 /* TJBUrlManager.swift in Sources */,
 				0BFA9A811EEEB5FD00824929 /* Uncharted.xcdatamodeld in Sources */,
-				0BFA9AC11EF00C6400824929 /* TJBJsonConverter.swift in Sources */,
 				0BFA9A7B1EEEB5FD00824929 /* ViewController.swift in Sources */,
-				0BFA9ABD1EF00B3C00824929 /* TJBServerFacade.swift in Sources */,
-				0BFA9AC31EF00C7600824929 /* TJBServerCommunicator.swift in Sources */,
 				0BFA9A791EEEB5FC00824929 /* AppDelegate.swift in Sources */,
 				0BFA9AB51EEEFAD600824929 /* TJBLocationManager.swift in Sources */,
 			);

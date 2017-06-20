@@ -10,49 +10,63 @@ import Foundation
 
 class TJBUrlManager {
     
-    static let sharedInstance = TJBUrlManager()
+    enum Option {
+        case LocalServer, HostedServer
+    }
     
-    var serverOption: TJBServerOption = TJBServerOption.LocalServer
-    private let baseUrlString_Local = "http://127.0.0.1:8000/"
-    private let getAllVendorsExtension_Local = "vendor/getAll/"
-    private let createVendorExtension_Local = "vendor/create/"
+    enum URLError: Error {
+        case nilURL(String)
+    }
     
-    private init() {}
+    static var serverOption: Option = .LocalServer
+    private static let baseUrlString_Local = "http://127.0.0.1:8000/"
+    private static let getAllVendorsExtension_Local = "vendor/getAll/"
+    private static let createVendorExtension_Local = "vendor/create/"
     
-    func baseUrl() -> URL? {
+    static func baseUrl() throws -> URL? {
         let url: URL?
+        
         switch serverOption {
         case .LocalServer:
             url = URL(string: baseUrlString_Local)
         default:
-            url = nil
+            throw URLError.nilURL("base")
         }
+        
         return url
     }
     
-    func allVendorsUrl() -> URL? {
+    static func allVendorsUrl() throws -> URL? {
         let url: URL?
+        
         switch serverOption {
         case .LocalServer:
-            url = URL(string: getAllVendorsExtension_Local, relativeTo: baseUrl())
+            url = try URL(string: getAllVendorsExtension_Local, relativeTo: baseUrl())
         default:
-            url = nil
+            throw URLError.nilURL("all vendors URL")
         }
+        
         return url
     }
     
-    func createVendorUrl() -> URL? {
+    static func createVendorUrl() throws -> URL? {
         let url: URL?
+        
         switch serverOption {
         case .LocalServer:
-            url = URL(string: createVendorExtension_Local, relativeTo: baseUrl())
+            url = try URL(string: createVendorExtension_Local, relativeTo: baseUrl())
         default:
-            url = nil
+            throw URLError.nilURL("create vendor URL")
         }
+        
         return url
-    }
-    
-    enum TJBServerOption {
-        case LocalServer, HostedServer
     }
 }
+
+
+
+
+
+
+
+

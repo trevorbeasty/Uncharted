@@ -16,8 +16,17 @@ class TJBMapBasedSearchVC: UIViewController {
     @IBOutlet weak var centerOnLocationButton: UIButton!
     
     @IBAction func didPressCenterOnLocationButton(_ sender: Any) {
-//        TJBLocationManager.sharedInstance.requestLocation()
-        TJBServerFacade.sharedInstance.getAllVendors()
+        TJBLocationManager.sharedInstance.requestLocation()
+        
+        do {
+            try TJBVendor.downloadAllVendors(completion: { (vendors: [TJBVendor]) -> Void in
+                for vendor in vendors {
+                    print(vendor.description)
+                }
+            })
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     override func viewDidLoad() {
@@ -29,8 +38,10 @@ class TJBMapBasedSearchVC: UIViewController {
     }
     
     private func configureLocationDidUpdateNotification() {
-        NotificationCenter.default.addObserver(forName: Notification.Name("LocationDidUpdate"), object: TJBLocationManager.sharedInstance, queue: nil, using: { (notification: Notification) in
-//            print("location did update")
+        NotificationCenter.default.addObserver(forName: Notification.Name(TJBLocationManager.LocationNotifications.LocationDidUpdate.rawValue),
+                                               object: TJBLocationManager.sharedInstance,
+                                               queue: nil,
+                                               using: { (notification: Notification) in
             if let info = notification.userInfo as? Dictionary<String,[CLLocation]> {
                 if let locations = info["locations"] {
                     let location = locations[0]
