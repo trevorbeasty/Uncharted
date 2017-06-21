@@ -7,3 +7,9 @@
 //
 
 import Foundation
+import UIKit
+
+class TJBHomeTransitionInteractor: UIPercentDrivenInteractiveTransition {
+    var hasStarted = false
+    var shouldFinish = false
+}

@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TJBMapBasedSearchVC" customModule="Uncharted" customModuleProvider="target">
             <connections>
+                <outlet property="bottomLeftTab" destination="KYZ-Py-Uxo" id="lB1-ia-ayx"/>
                 <outlet property="centerOnLocationButton" destination="UDF-qD-ANA" id="P6g-Jm-9L0"/>
                 <outlet property="map" destination="j1p-sR-le8" id="k2a-Z8-SpN"/>
                 <outlet property="randomVendorsButton" destination="CVV-CE-SJo" id="p9b-4q-3dY"/>
@@ -38,6 +39,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYZ-Py-Uxo">
                     <rect key="frame" x="0.0" y="579" width="44" height="44"/>
                     <color key="backgroundColor" red="0.95660322984001944" green="0.29396013591928438" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="width" constant="44" id="4Ed-Ej-Kbs"/>
                         <constraint firstAttribute="height" constant="44" id="r9m-Y1-DgQ"/>
@@ -54,6 +56,11 @@
                     </constraints>
                     <items>
                         <navigationItem title="Map Based Search" id="fZz-N5-c29">
+                            <barButtonItem key="leftBarButtonItem" title="Present" id="mRS-mo-ZPA">
+                                <connections>
+                                    <action selector="didPressPresentButton:" destination="-1" id="Oxw-Q1-6jZ"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem key="rightBarButtonItem" title="Rand" id="CVV-CE-SJo">
                                 <connections>
                                     <action selector="didPressRandButton:" destination="-1" id="O6d-Jm-BYW"/>

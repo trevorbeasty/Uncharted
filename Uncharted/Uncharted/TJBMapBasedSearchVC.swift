@@ -11,18 +11,26 @@ import MapKit
 
 class TJBMapBasedSearchVC: UIViewController {
     
+    let transition = HomeTransitionAnimator()
+    let interactor = TJBHomeTransitionInteractor()
+    
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var randomVendorsButton: UIBarButtonItem!
     @IBOutlet weak var centerOnLocationButton: UIButton!
+    @IBOutlet weak var bottomLeftTab: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         map.delegate = self;
         
+        let bottomLeftTabGR = UIPanGestureRecognizer(target: self,
+                                                     action: #selector(didPanBottomLeftTab(gr:)))
+        bottomLeftTab.addGestureRecognizer(bottomLeftTabGR)
+        
         configureLocationDidUpdateNotification()
     }
-    
+
     private func configureLocationDidUpdateNotification() {
         NotificationCenter.default.addObserver(forName: Notification.Name(TJBLocationManager.LocationNotifications.LocationDidUpdate.rawValue),
                                                object: TJBLocationManager.sharedInstance,
@@ -73,6 +81,14 @@ extension TJBMapBasedSearchVC {
         map.addAnnotation(randVendor)
     }
     
+    @IBAction func didPressPresentButton(_ sender: Any) {
+        let vc = TJBActiveVendorOptionsVC()
+        vc.transitioningDelegate = self
+        present(vc,
+                animated: true,
+                completion: nil)
+    }
+    
 }
 
 // MKMapViewDelegate protocol
@@ -98,6 +114,65 @@ extension TJBMapBasedSearchVC: MKMapViewDelegate {
         }
         
         return nil
+    }
+}
+
+// custom transitions
+extension TJBMapBasedSearchVC: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return transition
+    }
+    
+    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        
+        return interactor
+    }
+    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        
+        return interactor
+    }
+    
+    func didPanBottomLeftTab(gr: UIPanGestureRecognizer) {
+        
+        let progressThreshhold: CGFloat = 0.5
+        
+        let translation = gr.translation(in: view)
+        let horizontalMovement = translation.x / view.bounds.width
+        let rightMovement = fmaxf(Float(horizontalMovement), 0.0)
+        let rightMovementPercent = fminf(rightMovement, 1.0)
+        let progress = CGFloat(rightMovementPercent)
+        
+        switch gr.state {
+            
+        case .began:
+            interactor.hasStarted = true
+            let vc = TJBActiveVendorOptionsVC()
+            vc.transitioningDelegate = self
+            present(vc,
+                    animated: true,
+                    completion: nil)
+            
+        case .changed:
+            interactor.shouldFinish = progress > progressThreshhold
+            interactor.update(progress)
+            
+        case .ended:
+            interactor.hasStarted = false
+            interactor.shouldFinish ? interactor.finish() : interactor.cancel()
+            
+        case .cancelled:
+            interactor.hasStarted = false
+            interactor.cancel()
+            
+        default:
+            break
+            
+        }
     }
 }
 

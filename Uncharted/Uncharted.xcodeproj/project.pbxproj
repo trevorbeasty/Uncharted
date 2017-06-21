@@ -23,6 +23,10 @@
 		0BFA9ABA1EEEFB2000824929 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFA9AB91EEEFB2000824929 /* MapKit.framework */; };
 		0BFA9AC51EF00E3500824929 /* TJBUrlManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9AC41EF00E3500824929 /* TJBUrlManager.swift */; };
 		0BFA9AC71EF96CEE00824929 /* TJBVendorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9AC61EF96CEE00824929 /* TJBVendorFactory.swift */; };
+		0BFA9ACA1EFA9C6300824929 /* HomeTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9AC91EFA9C6300824929 /* HomeTransitionAnimator.swift */; };
+		0BFA9ACD1EFAA51F00824929 /* TJBActiveVendorOptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9ACB1EFAA51F00824929 /* TJBActiveVendorOptionsVC.swift */; };
+		0BFA9ACE1EFAA51F00824929 /* TJBActiveVendorOptionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BFA9ACC1EFAA51F00824929 /* TJBActiveVendorOptionsVC.xib */; };
+		0BFA9AD01EFAAB8C00824929 /* TJBHomeTransitionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9ACF1EFAAB8C00824929 /* TJBHomeTransitionInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +69,10 @@
 		0BFA9AB91EEEFB2000824929 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0BFA9AC41EF00E3500824929 /* TJBUrlManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBUrlManager.swift; sourceTree = "<group>"; };
 		0BFA9AC61EF96CEE00824929 /* TJBVendorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBVendorFactory.swift; sourceTree = "<group>"; };
+		0BFA9AC91EFA9C6300824929 /* HomeTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTransitionAnimator.swift; sourceTree = "<group>"; };
+		0BFA9ACB1EFAA51F00824929 /* TJBActiveVendorOptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBActiveVendorOptionsVC.swift; sourceTree = "<group>"; };
+		0BFA9ACC1EFAA51F00824929 /* TJBActiveVendorOptionsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJBActiveVendorOptionsVC.xib; sourceTree = "<group>"; };
+		0BFA9ACF1EFAAB8C00824929 /* TJBHomeTransitionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBHomeTransitionInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,8 +172,11 @@
 		0BFA9AAA1EEEB61800824929 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0BFA9AC81EFA997100824929 /* Transition Objects */,
 				0BFA9AAE1EEEC45600824929 /* TJBMapBasedSearchVC.swift */,
 				0BFA9AAF1EEEC45600824929 /* TJBMapBasedSearchVC.xib */,
+				0BFA9ACB1EFAA51F00824929 /* TJBActiveVendorOptionsVC.swift */,
+				0BFA9ACC1EFAA51F00824929 /* TJBActiveVendorOptionsVC.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -200,6 +211,15 @@
 				0BFA9AC41EF00E3500824929 /* TJBUrlManager.swift */,
 			);
 			name = Server;
+			sourceTree = "<group>";
+		};
+		0BFA9AC81EFA997100824929 /* Transition Objects */ = {
+			isa = PBXGroup;
+			children = (
+				0BFA9AC91EFA9C6300824929 /* HomeTransitionAnimator.swift */,
+				0BFA9ACF1EFAAB8C00824929 /* TJBHomeTransitionInteractor.swift */,
+			);
+			name = "Transition Objects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +336,7 @@
 				0BFA9A861EEEB5FD00824929 /* LaunchScreen.storyboard in Resources */,
 				0BFA9A831EEEB5FD00824929 /* Assets.xcassets in Resources */,
 				0BFA9A7E1EEEB5FD00824929 /* Main.storyboard in Resources */,
+				0BFA9ACE1EFAA51F00824929 /* TJBActiveVendorOptionsVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,10 +361,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BFA9ACD1EFAA51F00824929 /* TJBActiveVendorOptionsVC.swift in Sources */,
 				0BFA9AB01EEEC45600824929 /* TJBMapBasedSearchVC.swift in Sources */,
 				0BFA9AC71EF96CEE00824929 /* TJBVendorFactory.swift in Sources */,
 				0BFA9AAD1EEEB66800824929 /* TJBVendor.swift in Sources */,
 				0BFA9AC51EF00E3500824929 /* TJBUrlManager.swift in Sources */,
+				0BFA9ACA1EFA9C6300824929 /* HomeTransitionAnimator.swift in Sources */,
+				0BFA9AD01EFAAB8C00824929 /* TJBHomeTransitionInteractor.swift in Sources */,
 				0BFA9A811EEEB5FD00824929 /* Uncharted.xcdatamodeld in Sources */,
 				0BFA9A7B1EEEB5FD00824929 /* ViewController.swift in Sources */,
 				0BFA9A791EEEB5FC00824929 /* AppDelegate.swift in Sources */,
