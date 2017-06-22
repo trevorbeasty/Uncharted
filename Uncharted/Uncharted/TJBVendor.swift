@@ -14,17 +14,30 @@ class TJBVendor: NSObject {
     enum VendorType : Int {
         case StreetArtist, StreetPerformer, HouseParty, OpenHouse, FoodTruck
         
-        static let count: Int = {
-            var max: Int = 0
-            while let _ = VendorType(rawValue: max) { max += 1 }
-            return max
-        }()
-        
-        var stringRepresentation: String {
-            return "vendorType_" + String(self.rawValue)
+        static var count: Int {
+            var count = 0
+            while let _ = VendorType(rawValue: count) {
+                count += 1
+            }
+            return count
         }
         
-        var mapSymbol: UIImage? {
+        var stringRepresentation: String {
+            switch self {
+            case .StreetArtist:
+                return "Street Artist"
+            case .StreetPerformer:
+                return "Street Performer"
+            case .HouseParty:
+                return "House Party"
+            case .OpenHouse:
+                return "Open House"
+            case .FoodTruck:
+                return "Food Truck"
+            }
+        }
+        
+        var mapSymbol: UIImage {
             switch self {
             case .StreetArtist:
                 return #imageLiteral(resourceName: "StreetArt")
@@ -37,6 +50,16 @@ class TJBVendor: NSObject {
             case .FoodTruck:
                 return #imageLiteral(resourceName: "FoodTruck")
             }
+        }
+        
+        static var allVendorTypes: [VendorType] {
+            var count = 0
+            var result = [VendorType]()
+            while let currentVendorType = VendorType(rawValue: count) {
+                result.append(currentVendorType)
+                count += 1
+            }
+            return result
         }
     }
 

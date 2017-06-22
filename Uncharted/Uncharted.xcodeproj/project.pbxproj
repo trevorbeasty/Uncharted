@@ -27,6 +27,10 @@
 		0BFA9ACD1EFAA51F00824929 /* TJBActiveVendorOptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9ACB1EFAA51F00824929 /* TJBActiveVendorOptionsVC.swift */; };
 		0BFA9ACE1EFAA51F00824929 /* TJBActiveVendorOptionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BFA9ACC1EFAA51F00824929 /* TJBActiveVendorOptionsVC.xib */; };
 		0BFA9AD01EFAAB8C00824929 /* TJBHomeTransitionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9ACF1EFAAB8C00824929 /* TJBHomeTransitionInteractor.swift */; };
+		0BFA9AD61EFABFCD00824929 /* TJBVendorOptionsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9AD41EFABFCD00824929 /* TJBVendorOptionsListVC.swift */; };
+		0BFA9AD71EFABFCD00824929 /* TJBVendorOptionsListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BFA9AD51EFABFCD00824929 /* TJBVendorOptionsListVC.xib */; };
+		0BFA9ADF1EFB0EF100824929 /* TJBVendorOptionsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9ADD1EFB0EF100824929 /* TJBVendorOptionsListTableViewCell.swift */; };
+		0BFA9AE01EFB0EF100824929 /* TJBVendorOptionsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BFA9ADE1EFB0EF100824929 /* TJBVendorOptionsListTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,10 @@
 		0BFA9ACB1EFAA51F00824929 /* TJBActiveVendorOptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBActiveVendorOptionsVC.swift; sourceTree = "<group>"; };
 		0BFA9ACC1EFAA51F00824929 /* TJBActiveVendorOptionsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJBActiveVendorOptionsVC.xib; sourceTree = "<group>"; };
 		0BFA9ACF1EFAAB8C00824929 /* TJBHomeTransitionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBHomeTransitionInteractor.swift; sourceTree = "<group>"; };
+		0BFA9AD41EFABFCD00824929 /* TJBVendorOptionsListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBVendorOptionsListVC.swift; sourceTree = "<group>"; };
+		0BFA9AD51EFABFCD00824929 /* TJBVendorOptionsListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJBVendorOptionsListVC.xib; sourceTree = "<group>"; };
+		0BFA9ADD1EFB0EF100824929 /* TJBVendorOptionsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBVendorOptionsListTableViewCell.swift; sourceTree = "<group>"; };
+		0BFA9ADE1EFB0EF100824929 /* TJBVendorOptionsListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJBVendorOptionsListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,11 +180,9 @@
 		0BFA9AAA1EEEB61800824929 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0BFA9AD21EFABF4C00824929 /* Map */,
+				0BFA9AD11EFABF4900824929 /* Map Options */,
 				0BFA9AC81EFA997100824929 /* Transition Objects */,
-				0BFA9AAE1EEEC45600824929 /* TJBMapBasedSearchVC.swift */,
-				0BFA9AAF1EEEC45600824929 /* TJBMapBasedSearchVC.xib */,
-				0BFA9ACB1EFAA51F00824929 /* TJBActiveVendorOptionsVC.swift */,
-				0BFA9ACC1EFAA51F00824929 /* TJBActiveVendorOptionsVC.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -220,6 +226,44 @@
 				0BFA9ACF1EFAAB8C00824929 /* TJBHomeTransitionInteractor.swift */,
 			);
 			name = "Transition Objects";
+			sourceTree = "<group>";
+		};
+		0BFA9AD11EFABF4900824929 /* Map Options */ = {
+			isa = PBXGroup;
+			children = (
+				0BFA9AD31EFABFA400824929 /* List */,
+				0BFA9ACB1EFAA51F00824929 /* TJBActiveVendorOptionsVC.swift */,
+				0BFA9ACC1EFAA51F00824929 /* TJBActiveVendorOptionsVC.xib */,
+			);
+			name = "Map Options";
+			sourceTree = "<group>";
+		};
+		0BFA9AD21EFABF4C00824929 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				0BFA9AAE1EEEC45600824929 /* TJBMapBasedSearchVC.swift */,
+				0BFA9AAF1EEEC45600824929 /* TJBMapBasedSearchVC.xib */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		0BFA9AD31EFABFA400824929 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				0BFA9AD81EFB0E4900824929 /* Table View Cell */,
+				0BFA9AD41EFABFCD00824929 /* TJBVendorOptionsListVC.swift */,
+				0BFA9AD51EFABFCD00824929 /* TJBVendorOptionsListVC.xib */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		0BFA9AD81EFB0E4900824929 /* Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0BFA9ADD1EFB0EF100824929 /* TJBVendorOptionsListTableViewCell.swift */,
+				0BFA9ADE1EFB0EF100824929 /* TJBVendorOptionsListTableViewCell.xib */,
+			);
+			name = "Table View Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,10 +376,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BFA9AD71EFABFCD00824929 /* TJBVendorOptionsListVC.xib in Resources */,
 				0BFA9AB11EEEC45600824929 /* TJBMapBasedSearchVC.xib in Resources */,
 				0BFA9A861EEEB5FD00824929 /* LaunchScreen.storyboard in Resources */,
 				0BFA9A831EEEB5FD00824929 /* Assets.xcassets in Resources */,
 				0BFA9A7E1EEEB5FD00824929 /* Main.storyboard in Resources */,
+				0BFA9AE01EFB0EF100824929 /* TJBVendorOptionsListTableViewCell.xib in Resources */,
 				0BFA9ACE1EFAA51F00824929 /* TJBActiveVendorOptionsVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,7 +412,9 @@
 				0BFA9AC71EF96CEE00824929 /* TJBVendorFactory.swift in Sources */,
 				0BFA9AAD1EEEB66800824929 /* TJBVendor.swift in Sources */,
 				0BFA9AC51EF00E3500824929 /* TJBUrlManager.swift in Sources */,
+				0BFA9ADF1EFB0EF100824929 /* TJBVendorOptionsListTableViewCell.swift in Sources */,
 				0BFA9ACA1EFA9C6300824929 /* HomeTransitionAnimator.swift in Sources */,
+				0BFA9AD61EFABFCD00824929 /* TJBVendorOptionsListVC.swift in Sources */,
 				0BFA9AD01EFAAB8C00824929 /* TJBHomeTransitionInteractor.swift in Sources */,
 				0BFA9A811EEEB5FD00824929 /* Uncharted.xcdatamodeld in Sources */,
 				0BFA9A7B1EEEB5FD00824929 /* ViewController.swift in Sources */,

@@ -10,15 +10,12 @@ import UIKit
 
 class TJBVendorOptionsListTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    @IBOutlet weak var vendorSymbolImage: UIImageView!
+    @IBOutlet weak var vendorNameLabel: UILabel!
+    @IBOutlet weak var checkBoxButton: UIButton!
     
+    func configure(vendorType: TJBVendor.VendorType) {
+        vendorSymbolImage.image = vendorType.mapSymbol
+        vendorNameLabel.text = vendorType.stringRepresentation
+    }
 }
