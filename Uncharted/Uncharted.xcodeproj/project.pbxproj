@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B8FA86B1EFD49D600290959 /* TJBVendorHubVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8FA8691EFD49D600290959 /* TJBVendorHubVC.swift */; };
 		0B8FA86C1EFD49D600290959 /* TJBVendorHubVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B8FA86A1EFD49D600290959 /* TJBVendorHubVC.xib */; };
+		0BAF6D991EFD87A000A0781F /* TJBCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAF6D981EFD87A000A0781F /* TJBCheckBox.swift */; };
 		0BFA9A791EEEB5FC00824929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9A781EEEB5FC00824929 /* AppDelegate.swift */; };
 		0BFA9A7B1EEEB5FD00824929 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9A7A1EEEB5FD00824929 /* ViewController.swift */; };
 		0BFA9A7E1EEEB5FD00824929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BFA9A7C1EEEB5FD00824929 /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		0B8FA8691EFD49D600290959 /* TJBVendorHubVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBVendorHubVC.swift; sourceTree = "<group>"; };
 		0B8FA86A1EFD49D600290959 /* TJBVendorHubVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJBVendorHubVC.xib; sourceTree = "<group>"; };
+		0BAF6D981EFD87A000A0781F /* TJBCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBCheckBox.swift; sourceTree = "<group>"; };
 		0BFA9A751EEEB5FC00824929 /* Uncharted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uncharted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BFA9A781EEEB5FC00824929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BFA9A7A1EEEB5FD00824929 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -264,20 +266,21 @@
 		0BFA9AD31EFABFA400824929 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				0BFA9AD81EFB0E4900824929 /* Table View Cell */,
+				0BFA9AD81EFB0E4900824929 /* Components */,
 				0BFA9AD41EFABFCD00824929 /* TJBVendorOptionsListVC.swift */,
 				0BFA9AD51EFABFCD00824929 /* TJBVendorOptionsListVC.xib */,
 			);
 			name = List;
 			sourceTree = "<group>";
 		};
-		0BFA9AD81EFB0E4900824929 /* Table View Cell */ = {
+		0BFA9AD81EFB0E4900824929 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				0BFA9ADD1EFB0EF100824929 /* TJBVendorOptionsListTableViewCell.swift */,
 				0BFA9ADE1EFB0EF100824929 /* TJBVendorOptionsListTableViewCell.xib */,
+				0BAF6D981EFD87A000A0781F /* TJBCheckBox.swift */,
 			);
-			name = "Table View Cell";
+			name = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,6 +432,7 @@
 				0BFA9AC51EF00E3500824929 /* TJBUrlManager.swift in Sources */,
 				0BFA9ADF1EFB0EF100824929 /* TJBVendorOptionsListTableViewCell.swift in Sources */,
 				0BFA9ACA1EFA9C6300824929 /* HomeTransitionAnimator.swift in Sources */,
+				0BAF6D991EFD87A000A0781F /* TJBCheckBox.swift in Sources */,
 				0BFA9AD61EFABFCD00824929 /* TJBVendorOptionsListVC.swift in Sources */,
 				0BFA9AD01EFAAB8C00824929 /* TJBHomeTransitionInteractor.swift in Sources */,
 				0BFA9A811EEEB5FD00824929 /* Uncharted.xcdatamodeld in Sources */,

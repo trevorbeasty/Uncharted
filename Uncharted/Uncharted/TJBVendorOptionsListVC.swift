@@ -77,6 +77,11 @@ extension TJBVendorOptionsListVC: UITableViewDataSource {
 
 extension TJBVendorOptionsListVC: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = vendorList.cellForRow(at: indexPath) as? TJBVendorOptionsListTableViewCell {
+            cell.toggleCheckMark()
+        }
+    }
 }
 
 

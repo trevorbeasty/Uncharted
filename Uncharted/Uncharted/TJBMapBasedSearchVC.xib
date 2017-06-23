@@ -37,18 +37,20 @@
                     </constraints>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYZ-Py-Uxo">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYZ-Py-Uxo">
                     <rect key="frame" x="0.0" y="579" width="44" height="44"/>
-                    <color key="backgroundColor" red="0.95660322984001944" green="0.29396013591928438" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="width" constant="44" id="4Ed-Ej-Kbs"/>
                         <constraint firstAttribute="height" constant="44" id="r9m-Y1-DgQ"/>
                     </constraints>
+                    <state key="normal" image="RightArrow"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYR-zi-gLk">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYR-zi-gLk">
                     <rect key="frame" x="331" y="579" width="44" height="44"/>
-                    <color key="backgroundColor" red="0.95660322984001944" green="0.29396013591928438" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" image="LeftArrow"/>
                 </button>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8F-yA-2Ib">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
@@ -57,11 +59,6 @@
                     </constraints>
                     <items>
                         <navigationItem title="Map Based Search" id="fZz-N5-c29">
-                            <barButtonItem key="leftBarButtonItem" title="Present" id="mRS-mo-ZPA">
-                                <connections>
-                                    <action selector="didPressPresentButton:" destination="-1" id="Oxw-Q1-6jZ"/>
-                                </connections>
-                            </barButtonItem>
                             <barButtonItem key="rightBarButtonItem" title="Rand" id="CVV-CE-SJo">
                                 <connections>
                                     <action selector="didPressRandButton:" destination="-1" id="O6d-Jm-BYW"/>
@@ -70,13 +67,14 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDF-qD-ANA">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDF-qD-ANA">
                     <rect key="frame" x="321" y="65" width="44" height="44"/>
-                    <color key="backgroundColor" red="1" green="0.22229077990225343" blue="0.26235493954099565" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="gcs-e9-fkY"/>
                         <constraint firstAttribute="width" constant="44" id="lNH-d4-vHY"/>
                     </constraints>
+                    <state key="normal" image="Location"/>
                     <connections>
                         <action selector="didPressCenterOnLocationButton:" destination="-1" eventType="touchUpInside" id="T7B-cG-ydp"/>
                     </connections>
@@ -105,4 +103,9 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="LeftArrow" width="30" height="30"/>
+        <image name="Location" width="30" height="30"/>
+        <image name="RightArrow" width="30" height="30"/>
+    </resources>
 </document>

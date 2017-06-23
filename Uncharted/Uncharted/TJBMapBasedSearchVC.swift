@@ -45,7 +45,7 @@ class TJBMapBasedSearchVC: UIViewController {
     }
 
     private func configureLocationDidUpdateNotification() {
-        NotificationCenter.default.addObserver(forName: Notification.Name(TJBLocationManager.LocationNotifications.LocationDidUpdate.rawValue),
+        NotificationCenter.default.addObserver(forName: Notification.Name(TJBLocationManager.Notifications.LocationDidUpdate.rawValue),
                                                object: TJBLocationManager.sharedInstance,
                                                queue: nil,
                                                using: { (notification: Notification) in
@@ -77,31 +77,12 @@ extension TJBMapBasedSearchVC {
     
     @IBAction func didPressCenterOnLocationButton(_ sender: Any) {
         TJBLocationManager.sharedInstance.requestLocation()
-        
-        do {
-            try TJBVendor.downloadAllVendors(completion: { (vendors: [TJBVendor]) -> Void in
-                for vendor in vendors {
-                    print(vendor.description)
-                }
-            })
-        } catch {
-            print(error.localizedDescription)
-        }
     }
     
     @IBAction func didPressRandButton(_ sender: Any) {
         let randVendor = TJBVendorFactory.randomVendor(region: map.region)
         map.addAnnotation(randVendor)
     }
-    
-    @IBAction func didPressPresentButton(_ sender: Any) {
-        let vc = TJBActiveVendorOptionsVC()
-        vc.transitioningDelegate = self
-        present(vc,
-                animated: true,
-                completion: nil)
-    }
-    
 }
 
 // MKMapViewDelegate protocol

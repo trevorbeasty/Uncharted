@@ -31,39 +31,28 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXs-re-ErF">
-                        <rect key="frame" x="300" y="13" width="30" height="30"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="chR-4P-vUH" customClass="TJBCheckBox" customModule="Uncharted" customModuleProvider="target">
+                        <rect key="frame" x="300" y="13.5" width="30" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="Jvt-Ul-ygZ"/>
-                            <constraint firstAttribute="height" constant="30" id="vv4-Gy-lzb"/>
+                            <constraint firstAttribute="height" constant="30" id="4Zh-Lt-Td3"/>
+                            <constraint firstAttribute="width" constant="30" id="UeD-Ok-AfA"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="4"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                <integer key="value" value="1"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </button>
+                    </imageView>
                 </subviews>
-                <color key="backgroundColor" red="1" green="0.22229077990000001" blue="0.2623549395" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="dmg-kM-bxa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Aky-RJ-b96"/>
-                    <constraint firstItem="zXs-re-ErF" firstAttribute="leading" secondItem="25H-sM-Z4X" secondAttribute="trailing" constant="10" id="LRf-Ho-1M0"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="chR-4P-vUH" secondAttribute="trailing" constant="10" id="Gzg-SL-ceW"/>
+                    <constraint firstItem="chR-4P-vUH" firstAttribute="leading" secondItem="25H-sM-Z4X" secondAttribute="trailing" constant="10" id="HNK-3S-p9x"/>
                     <constraint firstItem="25H-sM-Z4X" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Mob-DQ-k4q"/>
-                    <constraint firstItem="zXs-re-ErF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Ndn-3q-0FM"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="zXs-re-ErF" secondAttribute="trailing" constant="10" id="gqC-hr-T5b"/>
                     <constraint firstAttribute="bottomMargin" secondItem="dmg-kM-bxa" secondAttribute="bottom" id="qq8-DK-UKO"/>
+                    <constraint firstItem="chR-4P-vUH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uKf-N8-IbN"/>
                     <constraint firstItem="dmg-kM-bxa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="yRK-fd-Xaa"/>
                     <constraint firstItem="25H-sM-Z4X" firstAttribute="leading" secondItem="dmg-kM-bxa" secondAttribute="trailing" constant="10" id="yhE-ZX-qPf"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="checkBoxButton" destination="zXs-re-ErF" id="BWW-e1-FtI"/>
+                <outlet property="checkBox" destination="chR-4P-vUH" id="asL-0m-O5L"/>
                 <outlet property="vendorNameLabel" destination="25H-sM-Z4X" id="tNz-90-YJL"/>
                 <outlet property="vendorSymbolImage" destination="dmg-kM-bxa" id="5Og-zE-oYe"/>
             </connections>

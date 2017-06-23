@@ -11,18 +11,16 @@ import CoreLocation
 
 class TJBLocationManager: NSObject {
     
-    enum LocationNotifications: String {
+    enum Notifications: String {
         case LocationDidUpdate, LocationUpdateFailed
     }
     
     static let sharedInstance = TJBLocationManager()
-    let locationManager: CLLocationManager
+    let locationManager: CLLocationManager = CLLocationManager()
     
     private override init() {
-        let lm = CLLocationManager()
-        self.locationManager = lm;
         super.init();
-        lm.delegate = self;
+        locationManager.delegate = self;
         
         if CLLocationManager.authorizationStatus() !=  CLAuthorizationStatus.authorizedWhenInUse {
             locationManager.requestWhenInUseAuthorization()
@@ -40,12 +38,13 @@ extension TJBLocationManager {
     
 }
 
+// CLLocationManagerDelegate
 extension TJBLocationManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         
-        let notificationName = Notification.Name(LocationNotifications.LocationDidUpdate.rawValue)
+        let notificationName = Notification.Name(Notifications.LocationDidUpdate.rawValue)
         NotificationCenter.default.post(name: notificationName, object:  self, userInfo: ["locations":locations])
     }
     

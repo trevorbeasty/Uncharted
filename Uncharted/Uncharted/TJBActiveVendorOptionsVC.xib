@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,17 +21,30 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QF2-rZ-rR1">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="55" width="375" height="612"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtN-uu-zqh">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="OGs-6d-8k5"/>
+                    </constraints>
+                    <items>
+                        <navigationItem title="Search Options" id="9bL-Ih-aov"/>
+                    </items>
+                </navigationBar>
             </subviews>
-            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="QF2-rZ-rR1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Dh4-Rf-5w2"/>
+                <constraint firstItem="QF2-rZ-rR1" firstAttribute="top" secondItem="gtN-uu-zqh" secondAttribute="bottom" id="D3h-nf-KxP"/>
+                <constraint firstItem="gtN-uu-zqh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JOn-bR-MTX"/>
                 <constraint firstAttribute="trailing" secondItem="QF2-rZ-rR1" secondAttribute="trailing" id="XGU-EI-rEk"/>
+                <constraint firstItem="gtN-uu-zqh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Z0t-xR-mJC"/>
                 <constraint firstItem="QF2-rZ-rR1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kXw-YU-qN6"/>
                 <constraint firstAttribute="bottom" secondItem="QF2-rZ-rR1" secondAttribute="bottom" id="sM3-MI-7Z6"/>
+                <constraint firstAttribute="trailing" secondItem="gtN-uu-zqh" secondAttribute="trailing" id="zQ0-ft-9an"/>
             </constraints>
+            <point key="canvasLocation" x="35.5" y="53.5"/>
         </view>
     </objects>
 </document>

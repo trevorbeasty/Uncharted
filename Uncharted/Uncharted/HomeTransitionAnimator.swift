@@ -19,7 +19,7 @@ class HomeTransitionAnimator: NSObject {
         case OffscreenFrameLeft, OffscreenFrameRight
     }
     
-    let duration: TimeInterval = 2.0
+    let duration: TimeInterval = 0.4
     var presenting: Bool = true
     var swipeDirection: SwipeDirection = .SwipeRight
     var offscreenFrameOrientation: OffscreenFrameOrientation {
