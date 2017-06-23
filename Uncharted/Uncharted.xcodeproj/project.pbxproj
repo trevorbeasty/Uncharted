@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B8FA86B1EFD49D600290959 /* TJBVendorHubVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8FA8691EFD49D600290959 /* TJBVendorHubVC.swift */; };
+		0B8FA86C1EFD49D600290959 /* TJBVendorHubVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B8FA86A1EFD49D600290959 /* TJBVendorHubVC.xib */; };
 		0BFA9A791EEEB5FC00824929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9A781EEEB5FC00824929 /* AppDelegate.swift */; };
 		0BFA9A7B1EEEB5FD00824929 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9A7A1EEEB5FD00824929 /* ViewController.swift */; };
 		0BFA9A7E1EEEB5FD00824929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BFA9A7C1EEEB5FD00824929 /* Main.storyboard */; };
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B8FA8691EFD49D600290959 /* TJBVendorHubVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBVendorHubVC.swift; sourceTree = "<group>"; };
+		0B8FA86A1EFD49D600290959 /* TJBVendorHubVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJBVendorHubVC.xib; sourceTree = "<group>"; };
 		0BFA9A751EEEB5FC00824929 /* Uncharted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uncharted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BFA9A781EEEB5FC00824929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BFA9A7A1EEEB5FD00824929 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +114,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B8FA8681EFD499200290959 /* Vendor Hub */ = {
+			isa = PBXGroup;
+			children = (
+				0B8FA8691EFD49D600290959 /* TJBVendorHubVC.swift */,
+				0B8FA86A1EFD49D600290959 /* TJBVendorHubVC.xib */,
+			);
+			name = "Vendor Hub";
+			sourceTree = "<group>";
+		};
 		0BFA9A6C1EEEB5FC00824929 = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +193,7 @@
 		0BFA9AAA1EEEB61800824929 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0B8FA8681EFD499200290959 /* Vendor Hub */,
 				0BFA9AD21EFABF4C00824929 /* Map */,
 				0BFA9AD11EFABF4900824929 /* Map Options */,
 				0BFA9AC81EFA997100824929 /* Transition Objects */,
@@ -377,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BFA9AD71EFABFCD00824929 /* TJBVendorOptionsListVC.xib in Resources */,
+				0B8FA86C1EFD49D600290959 /* TJBVendorHubVC.xib in Resources */,
 				0BFA9AB11EEEC45600824929 /* TJBMapBasedSearchVC.xib in Resources */,
 				0BFA9A861EEEB5FD00824929 /* LaunchScreen.storyboard in Resources */,
 				0BFA9A831EEEB5FD00824929 /* Assets.xcassets in Resources */,
@@ -418,6 +433,7 @@
 				0BFA9AD01EFAAB8C00824929 /* TJBHomeTransitionInteractor.swift in Sources */,
 				0BFA9A811EEEB5FD00824929 /* Uncharted.xcdatamodeld in Sources */,
 				0BFA9A7B1EEEB5FD00824929 /* ViewController.swift in Sources */,
+				0B8FA86B1EFD49D600290959 /* TJBVendorHubVC.swift in Sources */,
 				0BFA9A791EEEB5FC00824929 /* AppDelegate.swift in Sources */,
 				0BFA9AB51EEEFAD600824929 /* TJBLocationManager.swift in Sources */,
 			);

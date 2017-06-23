@@ -11,9 +11,30 @@ import UIKit
 
 class HomeTransitionAnimator: NSObject {
     
+    enum SwipeDirection {
+        case SwipeRight, SwipeLeft
+    }
+    
+    enum OffscreenFrameOrientation {
+        case OffscreenFrameLeft, OffscreenFrameRight
+    }
+    
     let duration: TimeInterval = 2.0
     var presenting: Bool = true
-    
+    var swipeDirection: SwipeDirection = .SwipeRight
+    var offscreenFrameOrientation: OffscreenFrameOrientation {
+        if (swipeDirection == .SwipeLeft && presenting == true) ||
+            (swipeDirection == .SwipeRight && presenting == false) {
+            
+            return .OffscreenFrameRight
+            
+        } else /* (swipeDirection == .SwipeLeft && presenting == false) ||
+            (swipeDirection == .SwipeRight && presenting == true) */ {
+            
+            return .OffscreenFrameLeft
+            
+        }
+    }
 }
 
 extension HomeTransitionAnimator: UIViewControllerAnimatedTransitioning {
@@ -28,26 +49,64 @@ extension HomeTransitionAnimator: UIViewControllerAnimatedTransitioning {
             let toView = transitionContext.view(forKey: .to)
             else { return }
         
-        // initial and final frames
+        if presenting == true {
+            
+            animateForPresenting(containerView: containerView,
+                                 fromView: fromView,
+                                 toView: toView,
+                                 offscreenFrame: offscreenFrame(),
+                                 transitionContext: transitionContext)
+            
+        } else /* presenting == false */ {
+            animateForDismissing(containerView: containerView,
+                                 fromView: fromView,
+                                 toView: toView,
+                                 offscreenFrame: offscreenFrame(),
+                                 transitionContext: transitionContext)
+        }
+    }
+    
+    private func offscreenFrame() -> CGRect {
         let screenBounds = UIScreen.main.bounds
-        let offscreenOrigin = CGPoint(x: -1.0 * screenBounds.width,
-                                      y: 0.0)
-        let offscreenFrame = CGRect(origin: offscreenOrigin,
-                                    size: screenBounds.size)
-        let initialFrame = presenting ? offscreenFrame : fromView.frame
-        let finalFrame = presenting ? fromView.frame : offscreenFrame
         
-        // animate
-        toView.frame = initialFrame
+        // offscreen frame varies according to swipe direction
+        let offscreenOrigin: CGPoint
+        
+        switch offscreenFrameOrientation {
+        case .OffscreenFrameRight:
+            offscreenOrigin = CGPoint(x: 1.0 * screenBounds.width, y: 0.0)
+        case .OffscreenFrameLeft:
+            offscreenOrigin = CGPoint(x: -1.0 * screenBounds.width, y: 0.0)
+        }
+        
+        return CGRect(origin: offscreenOrigin, size: screenBounds.size)
+    }
+    
+    private func animateForPresenting(containerView: UIView, fromView: UIView, toView: UIView, offscreenFrame: CGRect, transitionContext: UIViewControllerContextTransitioning) {
+        
+        toView.frame = offscreenFrame
         containerView.addSubview(toView)
         containerView.bringSubview(toFront: toView)
         
         UIView.animate(withDuration: duration,
-                       animations: { toView.frame = finalFrame },
+                       animations: { toView.frame = containerView.bounds },
                        completion: { _ in
                         transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
+    }
+    
+    
+    private func animateForDismissing(containerView: UIView, fromView: UIView, toView: UIView, offscreenFrame: CGRect, transitionContext: UIViewControllerContextTransitioning) {
         
+        toView.frame = containerView.bounds
+        containerView.addSubview(toView)
+        containerView.bringSubview(toFront: fromView)
+        
+        UIView.animate(withDuration: duration,
+                       animations: { fromView.frame = offscreenFrame },
+                       completion: { _ in
+                        transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        })
     }
 }
 
