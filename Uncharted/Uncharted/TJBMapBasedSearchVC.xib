@@ -13,9 +13,9 @@
             <connections>
                 <outlet property="bottomLeftTab" destination="KYZ-Py-Uxo" id="lB1-ia-ayx"/>
                 <outlet property="bottomRightTab" destination="yYR-zi-gLk" id="Mi7-Yc-ttC"/>
-                <outlet property="centerOnLocationButton" destination="UDF-qD-ANA" id="P6g-Jm-9L0"/>
                 <outlet property="map" destination="j1p-sR-le8" id="k2a-Z8-SpN"/>
                 <outlet property="randomVendorsButton" destination="CVV-CE-SJo" id="p9b-4q-3dY"/>
+                <outlet property="updateLocationContainer" destination="A2O-tR-hqn" id="J3R-GB-xhy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -67,26 +67,23 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDF-qD-ANA">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A2O-tR-hqn">
                     <rect key="frame" x="321" y="65" width="44" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="gcs-e9-fkY"/>
-                        <constraint firstAttribute="width" constant="44" id="lNH-d4-vHY"/>
+                        <constraint firstAttribute="height" constant="44" id="8tk-FH-OeU"/>
+                        <constraint firstAttribute="width" constant="44" id="rvO-BT-110"/>
                     </constraints>
-                    <state key="normal" image="Location"/>
-                    <connections>
-                        <action selector="didPressCenterOnLocationButton:" destination="-1" eventType="touchUpInside" id="T7B-cG-ydp"/>
-                    </connections>
-                </button>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="A2O-tR-hqn" secondAttribute="trailing" constant="10" id="0e7-0Z-hAX"/>
                 <constraint firstItem="d8F-yA-2Ib" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="31C-ay-Im7"/>
                 <constraint firstItem="zoq-ts-b1c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="D3P-1p-bDX"/>
-                <constraint firstAttribute="trailing" secondItem="UDF-qD-ANA" secondAttribute="trailing" constant="10" id="DA6-vm-g4j"/>
                 <constraint firstItem="yYR-zi-gLk" firstAttribute="height" secondItem="KYZ-Py-Uxo" secondAttribute="height" id="GPY-gI-bDI"/>
                 <constraint firstAttribute="bottom" secondItem="zoq-ts-b1c" secondAttribute="bottom" id="GoX-9z-GJE"/>
+                <constraint firstItem="A2O-tR-hqn" firstAttribute="top" secondItem="d8F-yA-2Ib" secondAttribute="bottom" constant="10" id="ImA-yx-WTy"/>
                 <constraint firstItem="yYR-zi-gLk" firstAttribute="width" secondItem="KYZ-Py-Uxo" secondAttribute="width" id="Kt1-cy-FdD"/>
                 <constraint firstItem="zoq-ts-b1c" firstAttribute="top" secondItem="yYR-zi-gLk" secondAttribute="bottom" id="PCm-ff-gHD"/>
                 <constraint firstItem="zoq-ts-b1c" firstAttribute="top" secondItem="j1p-sR-le8" secondAttribute="bottom" id="TYs-7Q-niU"/>
@@ -96,16 +93,15 @@
                 <constraint firstAttribute="trailing" secondItem="yYR-zi-gLk" secondAttribute="trailing" id="jpt-wl-UDe"/>
                 <constraint firstItem="j1p-sR-le8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mgb-0N-RVU"/>
                 <constraint firstAttribute="trailing" secondItem="j1p-sR-le8" secondAttribute="trailing" id="nfX-qF-lrD"/>
-                <constraint firstItem="UDF-qD-ANA" firstAttribute="top" secondItem="d8F-yA-2Ib" secondAttribute="bottom" constant="10" id="oYA-JO-ekS"/>
                 <constraint firstItem="KYZ-Py-Uxo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="r2E-ul-E3u"/>
                 <constraint firstItem="d8F-yA-2Ib" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vcO-7o-54b"/>
                 <constraint firstItem="j1p-sR-le8" firstAttribute="top" secondItem="d8F-yA-2Ib" secondAttribute="bottom" id="zJs-hx-oPp"/>
             </constraints>
+            <point key="canvasLocation" x="35.5" y="53.5"/>
         </view>
     </objects>
     <resources>
         <image name="LeftArrow" width="30" height="30"/>
-        <image name="Location" width="30" height="30"/>
         <image name="RightArrow" width="30" height="30"/>
     </resources>
 </document>

@@ -17,9 +17,9 @@ class TJBMapBasedSearchVC: UIViewController {
     
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var randomVendorsButton: UIBarButtonItem!
-    @IBOutlet weak var centerOnLocationButton: UIButton!
     @IBOutlet weak var bottomLeftTab: UIButton!
     @IBOutlet weak var bottomRightTab: UIButton!
+    @IBOutlet weak var updateLocationContainer: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +27,8 @@ class TJBMapBasedSearchVC: UIViewController {
         map.delegate = self;
         
         addSceneTransitionGestureRecognizers()
-        
         configureLocationDidUpdateNotification()
+        configureUpdateLocationChildVC()
     }
     
     private func addSceneTransitionGestureRecognizers() {
@@ -58,6 +58,13 @@ class TJBMapBasedSearchVC: UIViewController {
         })
     }
     
+    private func configureUpdateLocationChildVC() {
+        let childVC = TJBCurrentLocationRequestController()
+        TJBGeneralUtilities.embedChildViewController(child: childVC,
+                                                     parent: self,
+                                                     containerView: updateLocationContainer)
+    }
+    
     func centerMap(location: CLLocation, radiusInMeters: CLLocationDistance) {
         let distance = radiusInMeters * 2
         let region = MKCoordinateRegionMakeWithDistance(location.coordinate, distance, distance)
@@ -74,10 +81,6 @@ class TJBMapBasedSearchVC: UIViewController {
 
 // IBAction
 extension TJBMapBasedSearchVC {
-    
-    @IBAction func didPressCenterOnLocationButton(_ sender: Any) {
-        TJBLocationManager.sharedInstance.requestLocation()
-    }
     
     @IBAction func didPressRandButton(_ sender: Any) {
         let randVendor = TJBVendorFactory.randomVendor(region: map.region)
@@ -137,13 +140,11 @@ extension TJBMapBasedSearchVC: UIViewControllerTransitioningDelegate {
     
     func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         
-//        return nil
         return interactor
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         
-//        return nil
         return interactor
     }
     

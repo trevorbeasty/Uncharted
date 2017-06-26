@@ -10,6 +10,9 @@
 		0B8FA86B1EFD49D600290959 /* TJBVendorHubVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8FA8691EFD49D600290959 /* TJBVendorHubVC.swift */; };
 		0B8FA86C1EFD49D600290959 /* TJBVendorHubVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B8FA86A1EFD49D600290959 /* TJBVendorHubVC.xib */; };
 		0BAF6D991EFD87A000A0781F /* TJBCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAF6D981EFD87A000A0781F /* TJBCheckBox.swift */; };
+		0BAF6D9C1F013B3D00A0781F /* TJBCurrentLocationRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAF6D9A1F013B3D00A0781F /* TJBCurrentLocationRequestController.swift */; };
+		0BAF6D9D1F013B3D00A0781F /* TJBCurrentLocationRequestController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BAF6D9B1F013B3D00A0781F /* TJBCurrentLocationRequestController.xib */; };
+		0BAF6DA01F0140EB00A0781F /* TJBGeneralUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAF6D9F1F0140EB00A0781F /* TJBGeneralUtilities.swift */; };
 		0BFA9A791EEEB5FC00824929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9A781EEEB5FC00824929 /* AppDelegate.swift */; };
 		0BFA9A7B1EEEB5FD00824929 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9A7A1EEEB5FD00824929 /* ViewController.swift */; };
 		0BFA9A7E1EEEB5FD00824929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BFA9A7C1EEEB5FD00824929 /* Main.storyboard */; };
@@ -57,6 +60,9 @@
 		0B8FA8691EFD49D600290959 /* TJBVendorHubVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBVendorHubVC.swift; sourceTree = "<group>"; };
 		0B8FA86A1EFD49D600290959 /* TJBVendorHubVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJBVendorHubVC.xib; sourceTree = "<group>"; };
 		0BAF6D981EFD87A000A0781F /* TJBCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBCheckBox.swift; sourceTree = "<group>"; };
+		0BAF6D9A1F013B3D00A0781F /* TJBCurrentLocationRequestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBCurrentLocationRequestController.swift; sourceTree = "<group>"; };
+		0BAF6D9B1F013B3D00A0781F /* TJBCurrentLocationRequestController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJBCurrentLocationRequestController.xib; sourceTree = "<group>"; };
+		0BAF6D9F1F0140EB00A0781F /* TJBGeneralUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBGeneralUtilities.swift; sourceTree = "<group>"; };
 		0BFA9A751EEEB5FC00824929 /* Uncharted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uncharted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BFA9A781EEEB5FC00824929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BFA9A7A1EEEB5FD00824929 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +131,14 @@
 			name = "Vendor Hub";
 			sourceTree = "<group>";
 		};
+		0BAF6D9E1F0140CB00A0781F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				0BAF6D9F1F0140EB00A0781F /* TJBGeneralUtilities.swift */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 		0BFA9A6C1EEEB5FC00824929 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +163,7 @@
 		0BFA9A771EEEB5FC00824929 /* Uncharted */ = {
 			isa = PBXGroup;
 			children = (
+				0BAF6D9E1F0140CB00A0781F /* Utility */,
 				0BFA9ABB1EF00ACF00824929 /* Server */,
 				0BFA9AB31EEEFABC00824929 /* Location */,
 				0BFA9AAB1EEEB61A00824929 /* View */,
@@ -259,6 +274,8 @@
 			children = (
 				0BFA9AAE1EEEC45600824929 /* TJBMapBasedSearchVC.swift */,
 				0BFA9AAF1EEEC45600824929 /* TJBMapBasedSearchVC.xib */,
+				0BAF6D9A1F013B3D00A0781F /* TJBCurrentLocationRequestController.swift */,
+				0BAF6D9B1F013B3D00A0781F /* TJBCurrentLocationRequestController.xib */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -395,6 +412,7 @@
 			files = (
 				0BFA9AD71EFABFCD00824929 /* TJBVendorOptionsListVC.xib in Resources */,
 				0B8FA86C1EFD49D600290959 /* TJBVendorHubVC.xib in Resources */,
+				0BAF6D9D1F013B3D00A0781F /* TJBCurrentLocationRequestController.xib in Resources */,
 				0BFA9AB11EEEC45600824929 /* TJBMapBasedSearchVC.xib in Resources */,
 				0BFA9A861EEEB5FD00824929 /* LaunchScreen.storyboard in Resources */,
 				0BFA9A831EEEB5FD00824929 /* Assets.xcassets in Resources */,
@@ -435,9 +453,11 @@
 				0BAF6D991EFD87A000A0781F /* TJBCheckBox.swift in Sources */,
 				0BFA9AD61EFABFCD00824929 /* TJBVendorOptionsListVC.swift in Sources */,
 				0BFA9AD01EFAAB8C00824929 /* TJBHomeTransitionInteractor.swift in Sources */,
+				0BAF6DA01F0140EB00A0781F /* TJBGeneralUtilities.swift in Sources */,
 				0BFA9A811EEEB5FD00824929 /* Uncharted.xcdatamodeld in Sources */,
 				0BFA9A7B1EEEB5FD00824929 /* ViewController.swift in Sources */,
 				0B8FA86B1EFD49D600290959 /* TJBVendorHubVC.swift in Sources */,
+				0BAF6D9C1F013B3D00A0781F /* TJBCurrentLocationRequestController.swift in Sources */,
 				0BFA9A791EEEB5FC00824929 /* AppDelegate.swift in Sources */,
 				0BFA9AB51EEEFAD600824929 /* TJBLocationManager.swift in Sources */,
 			);
