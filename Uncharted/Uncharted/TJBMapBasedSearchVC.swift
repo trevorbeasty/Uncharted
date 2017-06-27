@@ -11,9 +11,7 @@ import MapKit
 
 class TJBMapBasedSearchVC: UIViewController {
     
-    let transition = HomeTransitionAnimator()
-    let interactor = TJBHomeTransitionInteractor()
-    let sceneTransitionProgressThreshold: CGFloat = 0.5
+    let toVendorOptionsTransitionManager = TJBMapToVendorOptionsTransitionManager()
     
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var randomVendorsButton: UIBarButtonItem!
@@ -38,10 +36,10 @@ class TJBMapBasedSearchVC: UIViewController {
                                                      action: #selector(didPanBottomLeftTab(gr:)))
         bottomLeftTab.addGestureRecognizer(bottomLeftTabGR)
         
-        // bottom right tab
-        let bottomRightTabGR = UIPanGestureRecognizer(target: self,
-                                                      action: #selector(didPanBottomRightTab(gr:)))
-        bottomRightTab.addGestureRecognizer(bottomRightTabGR)
+//        // bottom right tab
+//        let bottomRightTabGR = UIPanGestureRecognizer(target: self,
+//                                                      action: #selector(didPanBottomRightTab(gr:)))
+//        bottomRightTab.addGestureRecognizer(bottomRightTabGR)
     }
 
     private func configureLocationDidUpdateNotification() {
@@ -114,40 +112,9 @@ extension TJBMapBasedSearchVC: MKMapViewDelegate {
     }
 }
 
-// custom transitions
-extension TJBMapBasedSearchVC: UIViewControllerTransitioningDelegate {
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        transition.presenting = true
-        
-        if presented is TJBActiveVendorOptionsVC { transition.swipeDirection = .SwipeRight }
-        else if presented is TJBVendorHubVC { transition.swipeDirection = .SwipeLeft }
-        
-        return transition
-        
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        transition.presenting = false
-        
-        if dismissed is TJBActiveVendorOptionsVC { transition.swipeDirection = .SwipeLeft }
-        else if dismissed is TJBVendorHubVC { transition.swipeDirection = .SwipeRight }
-        
-        return transition
-    }
-    
-    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        
-        return interactor
-    }
-    
-    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        
-        return interactor
-    }
-    
+// MARK: - Custom Transitions / Gesture Recognizer Actions
+extension TJBMapBasedSearchVC {
+
     func didPanBottomLeftTab(gr: UIPanGestureRecognizer) {
         
         let translation = gr.translation(in: view)
@@ -155,70 +122,66 @@ extension TJBMapBasedSearchVC: UIViewControllerTransitioningDelegate {
         let rightMovement = fmaxf(Float(horizontalMovement), 0.0)
         let rightMovementPercent = fminf(rightMovement, 1.0)
         let progress = CGFloat(rightMovementPercent)
+        let shouldComplete = progress > toVendorOptionsTransitionManager.progressThreshold
+        
+        let interactor = toVendorOptionsTransitionManager.progressDrivenInteractiveTransition
+        interactor.shouldComplete = shouldComplete
         
         switch gr.state {
-            
         case .began:
-            interactor.hasStarted = true
             let vc = TJBActiveVendorOptionsVC()
-            vc.transitioningDelegate = self
+            vc.transitioningDelegate = toVendorOptionsTransitionManager
+            vc.modalPresentationStyle = .custom
             present(vc,
                     animated: true,
                     completion: nil)
-            
+
         case .changed:
-            interactor.shouldFinish = progress > sceneTransitionProgressThreshold
             interactor.update(progress)
             
         case .ended:
-            interactor.hasStarted = false
-            interactor.shouldFinish ? interactor.finish() : interactor.cancel()
-            
-        case .cancelled:
-            interactor.hasStarted = false
-            interactor.cancel()
+            shouldComplete ? interactor.finish() : interactor.cancel()
             
         default:
-            break
-            
+            interactor.cancel()
         }
     }
     
-    func didPanBottomRightTab(gr: UIPanGestureRecognizer) {
-    
-        let translation = gr.translation(in: view)
-        let horizontalMovement = -1.0 * translation.x / view.bounds.width /* gesture is pan left so translation will be negative */
-        let leftMovement = fmaxf(Float(horizontalMovement), 0.0)
-        let leftMovementPercent = fminf(leftMovement, 1.0)
-        let progress = CGFloat(leftMovementPercent)
-        
-        switch gr.state {
-            
-        case .began:
-            interactor.hasStarted = true
-            let vc = TJBVendorHubVC()
-            vc.transitioningDelegate = self
-            present(vc,
-                    animated: true,
-                    completion: nil)
-            
-        case .changed:
-            interactor.shouldFinish = progress > sceneTransitionProgressThreshold
-            interactor.update(progress)
-            
-        case .ended:
-            interactor.hasStarted = false
-            interactor.shouldFinish ? interactor.finish() : interactor.cancel()
-            
-        case .cancelled:
-            interactor.hasStarted = false
-            interactor.cancel()
-            
-        default:
-            break
-            
-        }
-    }
+//    func didPanBottomRightTab(gr: UIPanGestureRecognizer) {
+//    
+//        let translation = gr.translation(in: view)
+//        let horizontalMovement = -1.0 * translation.x / view.bounds.width /* gesture is pan left so translation will be negative */
+//        let leftMovement = fmaxf(Float(horizontalMovement), 0.0)
+//        let leftMovementPercent = fminf(leftMovement, 1.0)
+//        let progress = CGFloat(leftMovementPercent)
+//        
+//        switch gr.state {
+//            
+//        case .began:
+//            interactor.hasStarted = true
+//            let vc = TJBVendorHubVC()
+//            vc.transitioningDelegate = self
+//            present(vc,
+//                    animated: true,
+//                    completion: nil)
+//            
+//        case .changed:
+//            interactor.shouldFinish = progress > sceneTransitionProgressThreshold
+//            interactor.update(progress)
+//            
+//        case .ended:
+//            interactor.hasStarted = false
+//            interactor.shouldFinish ? interactor.finish() : interactor.cancel()
+//            
+//        case .cancelled:
+//            interactor.hasStarted = false
+//            interactor.cancel()
+//            
+//        default:
+//            break
+//            
+//        }
+//    }
 }
 
 

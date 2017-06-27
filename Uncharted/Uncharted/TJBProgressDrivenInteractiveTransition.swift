@@ -9,5 +9,5 @@
 import UIKit
 
 class TJBProgressDrivenInteractiveTransition: UIPercentDrivenInteractiveTransition {
-
+    var shouldComplete: Bool = false
 }

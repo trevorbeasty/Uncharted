@@ -9,5 +9,11 @@
 import UIKit
 
 class TJBVendorOptionsPresentationController: UIPresentationController {
-
+    
+    override var frameOfPresentedViewInContainerView: CGRect {
+        var frame: CGRect = .zero
+        frame.size = CGSize(width: containerView!.frame.size.width * 2.0 / 3.0,
+                            height: containerView!.frame.size.height)
+        return frame
+    }
 }
