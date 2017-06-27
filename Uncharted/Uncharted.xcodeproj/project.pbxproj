@@ -10,6 +10,13 @@
 		0B8FA86B1EFD49D600290959 /* TJBVendorHubVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8FA8691EFD49D600290959 /* TJBVendorHubVC.swift */; };
 		0B8FA86C1EFD49D600290959 /* TJBVendorHubVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B8FA86A1EFD49D600290959 /* TJBVendorHubVC.xib */; };
 		0BAF6D991EFD87A000A0781F /* TJBCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAF6D981EFD87A000A0781F /* TJBCheckBox.swift */; };
+		0BAF6D9C1F013B3D00A0781F /* TJBCurrentLocationRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAF6D9A1F013B3D00A0781F /* TJBCurrentLocationRequestController.swift */; };
+		0BAF6D9D1F013B3D00A0781F /* TJBCurrentLocationRequestController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BAF6D9B1F013B3D00A0781F /* TJBCurrentLocationRequestController.xib */; };
+		0BAF6DA01F0140EB00A0781F /* TJBGeneralUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAF6D9F1F0140EB00A0781F /* TJBGeneralUtilities.swift */; };
+		0BAF6DD81F02876500A0781F /* TJBMapToVendorOptionsTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAF6DD71F02876500A0781F /* TJBMapToVendorOptionsTransitionManager.swift */; };
+		0BAF6DDA1F0287BF00A0781F /* TJBProgressDrivenInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAF6DD91F0287BF00A0781F /* TJBProgressDrivenInteractiveTransition.swift */; };
+		0BAF6DDD1F02887500A0781F /* TJBMapToVendorOptionsPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAF6DDC1F02887500A0781F /* TJBMapToVendorOptionsPresentationController.swift */; };
+		0BAF6DDF1F02A51000A0781F /* TJBMapToVendorHubTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAF6DDE1F02A51000A0781F /* TJBMapToVendorHubTransitionManager.swift */; };
 		0BFA9A791EEEB5FC00824929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9A781EEEB5FC00824929 /* AppDelegate.swift */; };
 		0BFA9A7B1EEEB5FD00824929 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9A7A1EEEB5FD00824929 /* ViewController.swift */; };
 		0BFA9A7E1EEEB5FD00824929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BFA9A7C1EEEB5FD00824929 /* Main.storyboard */; };
@@ -26,10 +33,8 @@
 		0BFA9ABA1EEEFB2000824929 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFA9AB91EEEFB2000824929 /* MapKit.framework */; };
 		0BFA9AC51EF00E3500824929 /* TJBUrlManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9AC41EF00E3500824929 /* TJBUrlManager.swift */; };
 		0BFA9AC71EF96CEE00824929 /* TJBVendorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9AC61EF96CEE00824929 /* TJBVendorFactory.swift */; };
-		0BFA9ACA1EFA9C6300824929 /* HomeTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9AC91EFA9C6300824929 /* HomeTransitionAnimator.swift */; };
 		0BFA9ACD1EFAA51F00824929 /* TJBActiveVendorOptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9ACB1EFAA51F00824929 /* TJBActiveVendorOptionsVC.swift */; };
 		0BFA9ACE1EFAA51F00824929 /* TJBActiveVendorOptionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BFA9ACC1EFAA51F00824929 /* TJBActiveVendorOptionsVC.xib */; };
-		0BFA9AD01EFAAB8C00824929 /* TJBHomeTransitionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9ACF1EFAAB8C00824929 /* TJBHomeTransitionInteractor.swift */; };
 		0BFA9AD61EFABFCD00824929 /* TJBVendorOptionsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9AD41EFABFCD00824929 /* TJBVendorOptionsListVC.swift */; };
 		0BFA9AD71EFABFCD00824929 /* TJBVendorOptionsListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BFA9AD51EFABFCD00824929 /* TJBVendorOptionsListVC.xib */; };
 		0BFA9ADF1EFB0EF100824929 /* TJBVendorOptionsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA9ADD1EFB0EF100824929 /* TJBVendorOptionsListTableViewCell.swift */; };
@@ -57,6 +62,13 @@
 		0B8FA8691EFD49D600290959 /* TJBVendorHubVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBVendorHubVC.swift; sourceTree = "<group>"; };
 		0B8FA86A1EFD49D600290959 /* TJBVendorHubVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJBVendorHubVC.xib; sourceTree = "<group>"; };
 		0BAF6D981EFD87A000A0781F /* TJBCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBCheckBox.swift; sourceTree = "<group>"; };
+		0BAF6D9A1F013B3D00A0781F /* TJBCurrentLocationRequestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBCurrentLocationRequestController.swift; sourceTree = "<group>"; };
+		0BAF6D9B1F013B3D00A0781F /* TJBCurrentLocationRequestController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJBCurrentLocationRequestController.xib; sourceTree = "<group>"; };
+		0BAF6D9F1F0140EB00A0781F /* TJBGeneralUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBGeneralUtilities.swift; sourceTree = "<group>"; };
+		0BAF6DD71F02876500A0781F /* TJBMapToVendorOptionsTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBMapToVendorOptionsTransitionManager.swift; sourceTree = "<group>"; };
+		0BAF6DD91F0287BF00A0781F /* TJBProgressDrivenInteractiveTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBProgressDrivenInteractiveTransition.swift; sourceTree = "<group>"; };
+		0BAF6DDC1F02887500A0781F /* TJBMapToVendorOptionsPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBMapToVendorOptionsPresentationController.swift; sourceTree = "<group>"; };
+		0BAF6DDE1F02A51000A0781F /* TJBMapToVendorHubTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBMapToVendorHubTransitionManager.swift; sourceTree = "<group>"; };
 		0BFA9A751EEEB5FC00824929 /* Uncharted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uncharted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BFA9A781EEEB5FC00824929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BFA9A7A1EEEB5FD00824929 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,10 +91,8 @@
 		0BFA9AB91EEEFB2000824929 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0BFA9AC41EF00E3500824929 /* TJBUrlManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBUrlManager.swift; sourceTree = "<group>"; };
 		0BFA9AC61EF96CEE00824929 /* TJBVendorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBVendorFactory.swift; sourceTree = "<group>"; };
-		0BFA9AC91EFA9C6300824929 /* HomeTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTransitionAnimator.swift; sourceTree = "<group>"; };
 		0BFA9ACB1EFAA51F00824929 /* TJBActiveVendorOptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBActiveVendorOptionsVC.swift; sourceTree = "<group>"; };
 		0BFA9ACC1EFAA51F00824929 /* TJBActiveVendorOptionsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJBActiveVendorOptionsVC.xib; sourceTree = "<group>"; };
-		0BFA9ACF1EFAAB8C00824929 /* TJBHomeTransitionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBHomeTransitionInteractor.swift; sourceTree = "<group>"; };
 		0BFA9AD41EFABFCD00824929 /* TJBVendorOptionsListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBVendorOptionsListVC.swift; sourceTree = "<group>"; };
 		0BFA9AD51EFABFCD00824929 /* TJBVendorOptionsListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJBVendorOptionsListVC.xib; sourceTree = "<group>"; };
 		0BFA9ADD1EFB0EF100824929 /* TJBVendorOptionsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJBVendorOptionsListTableViewCell.swift; sourceTree = "<group>"; };
@@ -125,6 +135,39 @@
 			name = "Vendor Hub";
 			sourceTree = "<group>";
 		};
+		0BAF6D9E1F0140CB00A0781F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				0BAF6D9F1F0140EB00A0781F /* TJBGeneralUtilities.swift */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		0BAF6DD51F02870B00A0781F /* Map to Vendor Hub */ = {
+			isa = PBXGroup;
+			children = (
+				0BAF6DDE1F02A51000A0781F /* TJBMapToVendorHubTransitionManager.swift */,
+			);
+			name = "Map to Vendor Hub";
+			sourceTree = "<group>";
+		};
+		0BAF6DD61F02870D00A0781F /* Map to Vendor Options */ = {
+			isa = PBXGroup;
+			children = (
+				0BAF6DD71F02876500A0781F /* TJBMapToVendorOptionsTransitionManager.swift */,
+				0BAF6DDC1F02887500A0781F /* TJBMapToVendorOptionsPresentationController.swift */,
+			);
+			name = "Map to Vendor Options";
+			sourceTree = "<group>";
+		};
+		0BAF6DDB1F0287CF00A0781F /* Shared Types */ = {
+			isa = PBXGroup;
+			children = (
+				0BAF6DD91F0287BF00A0781F /* TJBProgressDrivenInteractiveTransition.swift */,
+			);
+			name = "Shared Types";
+			sourceTree = "<group>";
+		};
 		0BFA9A6C1EEEB5FC00824929 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +192,7 @@
 		0BFA9A771EEEB5FC00824929 /* Uncharted */ = {
 			isa = PBXGroup;
 			children = (
+				0BAF6D9E1F0140CB00A0781F /* Utility */,
 				0BFA9ABB1EF00ACF00824929 /* Server */,
 				0BFA9AB31EEEFABC00824929 /* Location */,
 				0BFA9AAB1EEEB61A00824929 /* View */,
@@ -198,7 +242,7 @@
 				0B8FA8681EFD499200290959 /* Vendor Hub */,
 				0BFA9AD21EFABF4C00824929 /* Map */,
 				0BFA9AD11EFABF4900824929 /* Map Options */,
-				0BFA9AC81EFA997100824929 /* Transition Objects */,
+				0BFA9AC81EFA997100824929 /* Transition Managers */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -235,13 +279,14 @@
 			name = Server;
 			sourceTree = "<group>";
 		};
-		0BFA9AC81EFA997100824929 /* Transition Objects */ = {
+		0BFA9AC81EFA997100824929 /* Transition Managers */ = {
 			isa = PBXGroup;
 			children = (
-				0BFA9AC91EFA9C6300824929 /* HomeTransitionAnimator.swift */,
-				0BFA9ACF1EFAAB8C00824929 /* TJBHomeTransitionInteractor.swift */,
+				0BAF6DDB1F0287CF00A0781F /* Shared Types */,
+				0BAF6DD61F02870D00A0781F /* Map to Vendor Options */,
+				0BAF6DD51F02870B00A0781F /* Map to Vendor Hub */,
 			);
-			name = "Transition Objects";
+			name = "Transition Managers";
 			sourceTree = "<group>";
 		};
 		0BFA9AD11EFABF4900824929 /* Map Options */ = {
@@ -259,6 +304,8 @@
 			children = (
 				0BFA9AAE1EEEC45600824929 /* TJBMapBasedSearchVC.swift */,
 				0BFA9AAF1EEEC45600824929 /* TJBMapBasedSearchVC.xib */,
+				0BAF6D9A1F013B3D00A0781F /* TJBCurrentLocationRequestController.swift */,
+				0BAF6D9B1F013B3D00A0781F /* TJBCurrentLocationRequestController.xib */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -395,6 +442,7 @@
 			files = (
 				0BFA9AD71EFABFCD00824929 /* TJBVendorOptionsListVC.xib in Resources */,
 				0B8FA86C1EFD49D600290959 /* TJBVendorHubVC.xib in Resources */,
+				0BAF6D9D1F013B3D00A0781F /* TJBCurrentLocationRequestController.xib in Resources */,
 				0BFA9AB11EEEC45600824929 /* TJBMapBasedSearchVC.xib in Resources */,
 				0BFA9A861EEEB5FD00824929 /* LaunchScreen.storyboard in Resources */,
 				0BFA9A831EEEB5FD00824929 /* Assets.xcassets in Resources */,
@@ -426,18 +474,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BFA9ACD1EFAA51F00824929 /* TJBActiveVendorOptionsVC.swift in Sources */,
+				0BAF6DD81F02876500A0781F /* TJBMapToVendorOptionsTransitionManager.swift in Sources */,
 				0BFA9AB01EEEC45600824929 /* TJBMapBasedSearchVC.swift in Sources */,
 				0BFA9AC71EF96CEE00824929 /* TJBVendorFactory.swift in Sources */,
 				0BFA9AAD1EEEB66800824929 /* TJBVendor.swift in Sources */,
+				0BAF6DDA1F0287BF00A0781F /* TJBProgressDrivenInteractiveTransition.swift in Sources */,
 				0BFA9AC51EF00E3500824929 /* TJBUrlManager.swift in Sources */,
+				0BAF6DDF1F02A51000A0781F /* TJBMapToVendorHubTransitionManager.swift in Sources */,
 				0BFA9ADF1EFB0EF100824929 /* TJBVendorOptionsListTableViewCell.swift in Sources */,
-				0BFA9ACA1EFA9C6300824929 /* HomeTransitionAnimator.swift in Sources */,
+				0BAF6DDD1F02887500A0781F /* TJBMapToVendorOptionsPresentationController.swift in Sources */,
 				0BAF6D991EFD87A000A0781F /* TJBCheckBox.swift in Sources */,
 				0BFA9AD61EFABFCD00824929 /* TJBVendorOptionsListVC.swift in Sources */,
-				0BFA9AD01EFAAB8C00824929 /* TJBHomeTransitionInteractor.swift in Sources */,
+				0BAF6DA01F0140EB00A0781F /* TJBGeneralUtilities.swift in Sources */,
 				0BFA9A811EEEB5FD00824929 /* Uncharted.xcdatamodeld in Sources */,
 				0BFA9A7B1EEEB5FD00824929 /* ViewController.swift in Sources */,
 				0B8FA86B1EFD49D600290959 /* TJBVendorHubVC.swift in Sources */,
+				0BAF6D9C1F013B3D00A0781F /* TJBCurrentLocationRequestController.swift in Sources */,
 				0BFA9A791EEEB5FC00824929 /* AppDelegate.swift in Sources */,
 				0BFA9AB51EEEFAD600824929 /* TJBLocationManager.swift in Sources */,
 			);

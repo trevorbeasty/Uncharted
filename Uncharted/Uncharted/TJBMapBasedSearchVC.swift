@@ -11,15 +11,23 @@ import MapKit
 
 class TJBMapBasedSearchVC: UIViewController {
     
-    let transition = HomeTransitionAnimator()
-    let interactor = TJBHomeTransitionInteractor()
-    let sceneTransitionProgressThreshold: CGFloat = 0.5
+    let toVendorOptionsTransitionManager = TJBMapToVendorOptionsTransitionManager()
+    let toVendorHubTransitionManager = TJBMapToVendorHubTransitionManager()
     
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var randomVendorsButton: UIBarButtonItem!
-    @IBOutlet weak var centerOnLocationButton: UIButton!
     @IBOutlet weak var bottomLeftTab: UIButton!
     @IBOutlet weak var bottomRightTab: UIButton!
+    @IBOutlet weak var updateLocationContainer: UIView!
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+}
+
+// MARK: - View Life Cycle
+extension TJBMapBasedSearchVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +35,8 @@ class TJBMapBasedSearchVC: UIViewController {
         map.delegate = self;
         
         addSceneTransitionGestureRecognizers()
-        
         configureLocationDidUpdateNotification()
+        configureUpdateLocationChildVC()
     }
     
     private func addSceneTransitionGestureRecognizers() {
@@ -43,41 +51,31 @@ class TJBMapBasedSearchVC: UIViewController {
                                                       action: #selector(didPanBottomRightTab(gr:)))
         bottomRightTab.addGestureRecognizer(bottomRightTabGR)
     }
-
+    
     private func configureLocationDidUpdateNotification() {
         NotificationCenter.default.addObserver(forName: Notification.Name(TJBLocationManager.Notifications.LocationDidUpdate.rawValue),
                                                object: TJBLocationManager.sharedInstance,
                                                queue: nil,
                                                using: { (notification: Notification) in
-            if let info = notification.userInfo as? Dictionary<String,[CLLocation]> {
-                if let locations = info["locations"] {
-                    let location = locations[0]
-                    self.centerMap(location: location, radiusInMeters: 50)
-                }
-            }
+                                                if let info = notification.userInfo as? Dictionary<String,[CLLocation]> {
+                                                    if let locations = info["locations"] {
+                                                        let location = locations[0]
+                                                        self.centerMap(location: location, radiusInMeters: 50)
+                                                    }
+                                                }
         })
     }
     
-    func centerMap(location: CLLocation, radiusInMeters: CLLocationDistance) {
-        let distance = radiusInMeters * 2
-        let region = MKCoordinateRegionMakeWithDistance(location.coordinate, distance, distance)
-        DispatchQueue.main.async {
-            self.map.setRegion(region, animated: true)
-        }
+    private func configureUpdateLocationChildVC() {
+        let childVC = TJBCurrentLocationRequestController()
+        TJBGeneralUtilities.embedChildViewController(child: childVC,
+                                                     parent: self,
+                                                     containerView: updateLocationContainer)
     }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
 }
 
-// IBAction
+// MARK: - IBAction
 extension TJBMapBasedSearchVC {
-    
-    @IBAction func didPressCenterOnLocationButton(_ sender: Any) {
-        TJBLocationManager.sharedInstance.requestLocation()
-    }
     
     @IBAction func didPressRandButton(_ sender: Any) {
         let randVendor = TJBVendorFactory.randomVendor(region: map.region)
@@ -85,7 +83,7 @@ extension TJBMapBasedSearchVC {
     }
 }
 
-// MKMapViewDelegate protocol
+// MARK: - MKMapViewDelegate
 extension TJBMapBasedSearchVC: MKMapViewDelegate {
     
     var annotationViewIdentifier: String { return "AnnotationView" }
@@ -111,42 +109,21 @@ extension TJBMapBasedSearchVC: MKMapViewDelegate {
     }
 }
 
-// custom transitions
-extension TJBMapBasedSearchVC: UIViewControllerTransitioningDelegate {
+// MARK: - General Map Methods
+extension TJBMapBasedSearchVC {
     
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        transition.presenting = true
-        
-        if presented is TJBActiveVendorOptionsVC { transition.swipeDirection = .SwipeRight }
-        else if presented is TJBVendorHubVC { transition.swipeDirection = .SwipeLeft }
-        
-        return transition
-        
+    func centerMap(location: CLLocation, radiusInMeters: CLLocationDistance) {
+        let distance = radiusInMeters * 2
+        let region = MKCoordinateRegionMakeWithDistance(location.coordinate, distance, distance)
+        DispatchQueue.main.async {
+            self.map.setRegion(region, animated: true)
+        }
     }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        transition.presenting = false
-        
-        if dismissed is TJBActiveVendorOptionsVC { transition.swipeDirection = .SwipeLeft }
-        else if dismissed is TJBVendorHubVC { transition.swipeDirection = .SwipeRight }
-        
-        return transition
-    }
-    
-    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        
-//        return nil
-        return interactor
-    }
-    
-    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        
-//        return nil
-        return interactor
-    }
-    
+}
+
+// MARK: - Custom Transitions / Gesture Recognizer Actions
+extension TJBMapBasedSearchVC {
+
     func didPanBottomLeftTab(gr: UIPanGestureRecognizer) {
         
         let translation = gr.translation(in: view)
@@ -154,32 +131,28 @@ extension TJBMapBasedSearchVC: UIViewControllerTransitioningDelegate {
         let rightMovement = fmaxf(Float(horizontalMovement), 0.0)
         let rightMovementPercent = fminf(rightMovement, 1.0)
         let progress = CGFloat(rightMovementPercent)
+        let shouldComplete = progress > toVendorOptionsTransitionManager.progressThreshold
+        
+        let interactor = toVendorOptionsTransitionManager.progressDrivenInteractiveTransition
+        interactor.shouldComplete = shouldComplete
         
         switch gr.state {
-            
         case .began:
-            interactor.hasStarted = true
             let vc = TJBActiveVendorOptionsVC()
-            vc.transitioningDelegate = self
+            vc.transitioningDelegate = toVendorOptionsTransitionManager
+            vc.modalPresentationStyle = .custom
             present(vc,
                     animated: true,
                     completion: nil)
-            
+
         case .changed:
-            interactor.shouldFinish = progress > sceneTransitionProgressThreshold
             interactor.update(progress)
             
         case .ended:
-            interactor.hasStarted = false
-            interactor.shouldFinish ? interactor.finish() : interactor.cancel()
-            
-        case .cancelled:
-            interactor.hasStarted = false
-            interactor.cancel()
+            shouldComplete ? interactor.finish() : interactor.cancel()
             
         default:
-            break
-            
+            interactor.cancel()
         }
     }
     
@@ -190,32 +163,28 @@ extension TJBMapBasedSearchVC: UIViewControllerTransitioningDelegate {
         let leftMovement = fmaxf(Float(horizontalMovement), 0.0)
         let leftMovementPercent = fminf(leftMovement, 1.0)
         let progress = CGFloat(leftMovementPercent)
+        let shouldComplete = progress > toVendorHubTransitionManager.progressThreshold
+        
+        let interactor = toVendorHubTransitionManager.progressDrivenInteractiveTransition
+        interactor.shouldComplete = shouldComplete
         
         switch gr.state {
-            
         case .began:
-            interactor.hasStarted = true
             let vc = TJBVendorHubVC()
-            vc.transitioningDelegate = self
+            vc.transitioningDelegate = toVendorHubTransitionManager
+            vc.modalPresentationStyle = .custom
             present(vc,
                     animated: true,
                     completion: nil)
             
         case .changed:
-            interactor.shouldFinish = progress > sceneTransitionProgressThreshold
             interactor.update(progress)
             
         case .ended:
-            interactor.hasStarted = false
-            interactor.shouldFinish ? interactor.finish() : interactor.cancel()
-            
-        case .cancelled:
-            interactor.hasStarted = false
-            interactor.cancel()
+            shouldComplete ? interactor.finish() : interactor.cancel()
             
         default:
-            break
-            
+            interactor.cancel()
         }
     }
 }
