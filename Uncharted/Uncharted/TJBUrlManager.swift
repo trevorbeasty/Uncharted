@@ -10,61 +10,52 @@ import Foundation
 
 class TJBUrlManager {
     
-    enum Option {
-        case LocalServer, HostedServer
+    let serverOption: ServerOption
+    
+    init(withServerOption option: ServerOption) {
+        self.serverOption = option
     }
     
-    enum URLError: Error {
-        case nilURL(String)
-    }
-    
-    static var serverOption: Option = .LocalServer
-    private static let baseUrlString_Local = "http://127.0.0.1:8000/"
-    private static let getAllVendorsExtension_Local = "vendor/getAll/"
-    private static let createVendorExtension_Local = "vendor/create/"
-    
-    static func baseUrl() throws -> URL? {
-        let url: URL?
-        
+    func baseUrl() -> URL? {
+
         switch serverOption {
-        case .LocalServer:
-            url = URL(string: baseUrlString_Local)
-        default:
-            throw URLError.nilURL("base")
+        case .Local:
+            return URL(string: "http://127.0.0.1:8000/")
+        case .Hosted:
+            return nil
         }
-        
-        return url
     }
     
-    static func allVendorsUrl() throws -> URL? {
-        let url: URL?
-        
+    func getAllVendorsUrl() -> URL? {
+
         switch serverOption {
-        case .LocalServer:
-            url = try URL(string: getAllVendorsExtension_Local, relativeTo: baseUrl())
-        default:
-            throw URLError.nilURL("all vendors URL")
+        case .Local:
+            return URL(string: "vendor/getAll/",
+                       relativeTo: baseUrl())
+        case .Hosted:
+            return nil
         }
-        
-        return url
     }
     
-    static func createVendorUrl() throws -> URL? {
-        let url: URL?
-        
+    func postVendorUrl() -> URL? {
+
         switch serverOption {
-        case .LocalServer:
-            url = try URL(string: createVendorExtension_Local, relativeTo: baseUrl())
-        default:
-            throw URLError.nilURL("create vendor URL")
+        case .Local:
+            return URL(string: "vendor/create/",
+                       relativeTo: baseUrl())
+        case .Hosted:
+            return nil
         }
-        
-        return url
     }
 }
 
-
-
+// MARK: - ServerOption Enum
+extension TJBUrlManager {
+    
+    enum ServerOption {
+        case Local, Hosted
+    }
+}
 
 
 
